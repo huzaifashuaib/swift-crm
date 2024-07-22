@@ -32,6 +32,8 @@ import revenue from '../../public/assets/order-page-svg/reven.svg'
 import sales from '../../public/assets/order-page-svg/sales.svg'
 import views from '../../public/assets/order-page-svg/views.svg'
 import orderGraph from '../../public/assets/order-page-svg/Graph.png'
+import countryMap from '../../public/assets/order-page-svg/Map.png'
+import countryFlag from '../../public/assets/order-page-svg/Flags.svg'
 
 export const svgIcon = {
   dashboard,
@@ -67,5 +69,7 @@ export const svgIcon = {
   sales,
   views,
   revenue,
-  orderGraph
+  orderGraph,
+  countryMap,
+  countryFlag
 };

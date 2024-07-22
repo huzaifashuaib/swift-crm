@@ -26,9 +26,10 @@ const MonthlyIncome = () => {
                 <div>
                   <Image src={arrowImg} alt="" />
                 </div>
-                
-                  <div className=" text-[10.5px] font-bold text-[#62912C]">5.6%</div>
-                
+
+                <div className=" text-[10.5px] font-bold text-[#62912C]">
+                  5.6%
+                </div>
               </div>
             </div>
           </div>
