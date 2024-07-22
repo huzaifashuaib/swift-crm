@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import {COLORS} from "./src/constants/textColor"
+import { BackgroundImage } from "./src/constants/backgroundImage";
 
 
 
@@ -11,12 +12,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+   
       colors: COLORS,
+      backgroundImage:BackgroundImage,
+      boxShadow: {
+        'custom': '0 4px 10px rgba(0, 0, 0, 0.08)',
+      },
+      borderWidth: {
+        'custom': '0.75px',
+      },
+      borderColor: {
+        'custom-border-color': 'rgba(0, 0, 0, 0.13)',
+      },
     },
   },
   plugins: [],

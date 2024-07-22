@@ -1,35 +1,24 @@
-import { CiSearch } from "react-icons/ci";
-import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
+import { svgIcon } from "@/constants/svgIcon";
 
-const Header = () => {
-    const {profileImg}=svgIcon;
+const Header = ({pageName}:{pageName:string}) => {
+  const { profileImg } = svgIcon;
   return (
     <div className="flex justify-between items-center">
-      <div className="profile flex items-center gap-[22px]">
-        <div className="image">
-        <Image src={profileImg} alt=""/>
-        </div>
-        <div className="profile-info">
-          <h1>
-            <span>Welcome Back, </span>
-            <span>Sophia Chester</span>
-          </h1>
-          <p>Here are your monthly store updates.</p>
-        </div>
+      <div>
+        <h1 className="text-cardMainHead text-[32px] font-bold">{pageName}</h1>
       </div>
-
-      <div className="searchBox ">
-        <div className="input-search flex rounded-sm focus:border focus:border-none ">
-          <input
-            type="text"
-            className="py-[6px] px-3 border border-gray-200"
-            placeholder="Type Here"
-          />
-          <button className="flex items-center gap-2 bg-btnColor rounded-r-[4px] py-[6px] px-3 text-white br-">
-            <CiSearch />
-            Search
-          </button>
+      <div className="flex items-center gap-4">
+        <div>1,2,3</div>
+        <div className="flex items-center gap-2">
+          <div className="w-[53px] h-[53px]">
+            <Image src={profileImg} alt="" />
+          </div>
+          <div>
+            <p className="text-cardMainHead text-base font-bold">
+              Sophia Chester
+            </p>
+          </div>
         </div>
       </div>
     </div>

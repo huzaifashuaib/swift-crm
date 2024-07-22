@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { svgIcon } from "@/constants/svgIcon";
+import Link from "next/link";
 const Nav = () => {
   const {
     dashboard,
@@ -13,53 +14,57 @@ const Nav = () => {
     setting,
     logo,
   } = svgIcon;
+
+
+  
+  
   return (
-    <div>
-      <div className="logo">
+    <div className="bg-[#FFFFFF] rounded-lg w-[220px] shadow-custom py-8">
+      <div className="logo mb-8 ml-4">
         <Image src={logo} alt="" />
       </div>
 
-      <div className="navlinks flex flex-col gap-4">
-        <p className=" text-textMain font-bold text-xs">GENERAL</p>
+      <div className="navlinks flex flex-col gap-4 mx-4">
+        <p className=" text-textMain font-bold text-xs my-2">GENERAL</p>
         <div className="gernal-links flex flex-col gap-4">
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2">
+            <Link href={'/'} className="flex items-center gap-2">
               <Image src={dashboard} alt="" />
               <h2 className=" text-base">Dashboard</h2>
-            </li>
+            </Link>
           </div>
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2 ">
+            <Link href={''} className="flex items-center gap-2 ">
               <Image src={notification} alt="" />
               <h2 className=" text-base">Notifications</h2>
-            </li>
+            </Link>
           </div>
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2 ">
+            <Link href={'/customers'} className="flex items-center gap-2 ">
               <Image src={customer} alt="" />
               <h2 className=" text-base">Customers</h2>
-            </li>
+            </Link>
           </div>
 
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2 ">
+            <Link href={'/orders'} className="flex items-center gap-2 ">
               <Image src={order} alt="" />
               <h2 className=" text-base">Order Overview</h2>
-            </li>
+            </Link>
           </div>
 
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2 ">
+            <Link href={'/analytics'} className="flex items-center gap-2 ">
               <Image src={analyst} alt="" />
               <h2 className=" text-base">Analytics</h2>
-            </li>
+            </Link>
           </div>
 
           <div className="mx-4 my-2">
-            <li className="flex items-center gap-2 ">
+            <Link href={'/documents'} className="flex items-center gap-2 ">
               <Image src={doc} alt="" />
               <h2 className=" text-base">Documents</h2>
-            </li>
+            </Link>
           </div>
         </div>
 
@@ -80,9 +85,8 @@ const Nav = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="accountstatus">
+        <div className="accountstatus">
         <div className="mx-4 my-2">
           <li className="flex items-center gap-2">
             <Image src={logout} alt="" />
@@ -90,6 +94,9 @@ const Nav = () => {
           </li>
         </div>
       </div>
+      </div>
+
+     
     </div>
   );
 };

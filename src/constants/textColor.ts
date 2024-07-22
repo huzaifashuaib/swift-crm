@@ -8,7 +8,7 @@ export const COLORS={
   cardBgColor:'#F8F9FA',
   cardTopColor:'#D355FF',
   cardBottomColor:'#9A55FF',
-  upArrow:'#E1F4CB',
+  success:'#E1F4CB',
   tableHeadColor:'#EFE6FF',
 
 }

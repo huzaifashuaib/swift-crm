@@ -1,33 +1,32 @@
 "use client";
-import { CircularProgressBar } from "react-percentage-bar";
 
-const TargetOrder = () => {
+import { useState } from "react";
+import CustomCircularProgressBar from "./CustomCircularBar";
+
+const TargetOrder: React.FC = () => {
+  const [percentage, setPercentage] = useState<number>(68);
+
   return (
-    <div>
-      <div className="bg-gradient-to-t from-cardTopColor to-cardBottomColor py-9 px-5">
-        <div className="percentageBar">
-          <CircularProgressBar
-            antiClockWise={true}
-            size={"1.5rem"}
-            shadow={true}
-            roundLineCap={false}
-            color={"#FFFFFF"}
-            percentage={68}
-            trackColor={"#DDC6FF"}
-            percentageStyle={{
-              color: "white",
-              fontWeight: "700",
-              fontSize: "24px",
-            }}
-          />
-        </div>
-        <div className="percenatgeInfo flex flex-col gap-2">
-          <h1 className="text-2xl font-bold text-white">
-            2,040/<span className="text-base">3,000</span>
-          </h1>
-          <p className="text-base text-white font-semibold">Target Orders</p>
-        </div>
+    <div className=" bg-gradient-to-t from-cardTopColor to-cardBottomColor h-full py-6 px-3 flex flex-col justify-center items-center rounded-[10.5px]">
+      <CustomCircularProgressBar
+        percentage={percentage}
+        size={101.7}
+        strokeWidth={19}
+        color="#FFFFFF"
+        trackColor="#DDC6FF"
+      />
+      <div className="percentageInfo flex flex-col gap-1 mt-4">
+        <h1 className="text-lg font-bold text-white">
+          {percentage * 30}/3,000
+        </h1>
+        <p className="text-sm text-white font-semibold mt-2">Target Orders</p>
       </div>
+      {/* <button
+          onClick={() => setPercentage((prev) => (prev + 10) % 101)}
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          
+        </button> */}
     </div>
   );
 };
