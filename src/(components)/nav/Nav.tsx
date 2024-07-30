@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import { svgIcon } from "@/constants/svgIcon";
 import Link from "next/link";
-const Nav = () => {
+import { signOut } from "next-auth/react";
+const Nav = async() => {
   const {
     dashboard,
     analyst,
@@ -15,9 +17,6 @@ const Nav = () => {
     logo,
   } = svgIcon;
 
-
-  
-  
   return (
     <div className="bg-[#FFFFFF] rounded-lg w-[220px] shadow-custom py-8">
       <div className="logo mb-8 ml-4">
@@ -88,7 +87,7 @@ const Nav = () => {
 
         <div className="accountstatus">
         <div className="mx-4 my-2">
-          <li className="flex items-center gap-2">
+          <li className="flex items-center gap-2 cursor-pointer" onClick={()=>signOut()}>
             <Image src={logout} alt="" />
             <h2 className=" text-base">Log Out</h2>
           </li>

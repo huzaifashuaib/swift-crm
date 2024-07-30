@@ -1,7 +1,13 @@
 import Image from "next/image";
 import { svgIcon } from "@/constants/svgIcon";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/libs/authOptions";
 
-const Header = ({pageName}:{pageName:string}) => {
+
+const Header = async({pageName}:{pageName:string}) => {
+  
+  const session = await getServerSession(authOptions);
+  console.log(session,"dsadasd")
   const { profileImg } = svgIcon;
   return (
     <div className="flex justify-between items-center">

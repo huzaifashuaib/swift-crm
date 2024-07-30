@@ -1,4 +1,4 @@
-import Header from "@/(components)/header/Header";
+import Header from "@/(components)/Header/Header";
 import BestSellingProduct from "@/(components)/orders/bestSellingProduct/BestSellingProduct";
 import CountrySales from "@/(components)/orders/contryStatistics/CountrySales";
 import SalesStatistics from "@/(components)/orders/salesStatistic/SaleStatistics";
