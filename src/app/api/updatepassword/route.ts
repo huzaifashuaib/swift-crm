@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
 import bcrypt from "bcrypt";
-import { redirect } from "next/navigation";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { newPassword, token } = body;
-    console.log(token);
     if (!newPassword && !token) {
       return new NextResponse("Missing Data", { status: 500 });
     }
@@ -26,8 +24,7 @@ export async function POST(req: Request) {
       return new NextResponse("Token not found", { status: 404 });
     }
 
-    const response = NextResponse.redirect("http://localhost:3000/signin");
-    return response;
+    return NextResponse.json(result);
   } catch (error: any) {
     console.log("RESET PASSWORD ERROR", error);
     return new NextResponse(error, { status: 500 });

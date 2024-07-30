@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       console.log(token);
       console.log("user exist");
       var transport = nodemailer.createTransport({
-        host: "sandbox.smtp.mailtrap.io",
+        service: "gmail",
         port: 2525,
         auth: {
           user: process.env.NODE_MAILER_USER,
@@ -30,26 +30,24 @@ export async function POST(req: Request) {
       });
       const htmlBody = `Click here to <a href='http://localhost:3000/resetpassword/${token}'>Reset Password</a>`;
       const info = await transport.sendMail({
-        from: '"Huzaifa Ojla 👻" huzaifaojla1@gmail.com',
+        from: '"Huzaifa Shoaib 👻" huzaifashoaib7@gmail.com',
         to: email,
-        subject: "Hello how are You!",
+        subject: "Hello How are You! Reset Your Website Password from here",
         text: "Rest Password",
         html: htmlBody,
       });
-
       console.log("Message sent: %s", info.messageId);
-
       await prismadb.user.update({
         where: { email },
         data: {
-          verifyToken:token
+          verifyToken: token,
         },
       });
     } else {
       console.log("user not exist");
     }
 
-    return NextResponse.json("send");
+    return NextResponse.json(userExist);
   } catch (error: any) {
     console.log("FORGET ERROR", error);
     return new NextResponse(error, { status: 500 });

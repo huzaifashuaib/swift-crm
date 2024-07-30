@@ -4,11 +4,13 @@ import Input from '../Input/Input'
 import { FaSpinner } from 'react-icons/fa'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { useRouter } from "next/navigation";
 
 const RestFormPass = ({token}:{token:string}) => {
     const [newPassword,setnewPassword]=useState("")
     const [enterPassword,setReEnterPassword]=useState("")
     const [loading,setloading]=useState(false)
+    const router=useRouter()
 
     const handleRestPass=async()=>{
       if(newPassword==enterPassword && enterPassword!="" && newPassword!=""){
@@ -19,8 +21,9 @@ const RestFormPass = ({token}:{token:string}) => {
             token
           });
           setloading(false)
-    
           toast.success("Successfully ");
+          router.push('http://localhost:3000/signin')
+
         } catch (error: any) {
           console.log(error);
           toast.error(error?.response?.data);
