@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
     }
     if (!isPasswordValid) {
-      return new NextResponse("Password is incorrect", { status: 403 });
+      return new NextResponse("Old Password is incorrect", { status: 403 });
     }
     
    
@@ -45,12 +45,12 @@ export async function POST(req: Request) {
         },
       });
       return NextResponse.json({
-        message: "Profile updated successfully",
+        message: "Profile password update successfully",
         updatedUser,
       });
     }
   } catch (error: any) {
-    console.log("UPDATE PROFILE ERROR", error);
+    console.log("UPDATE PASSWORD ERROR", error);
     return new NextResponse(error, { status: 500 });
   }
 }

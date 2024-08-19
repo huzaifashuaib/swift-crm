@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
-import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/libs/authOptions";
 import axios from "axios";
@@ -27,7 +26,7 @@ export async function POST(req: Request) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    if (user?.publicId) {
+    if (user.publicId) {
       const userPublicId = user.publicId;
       const response = await axios.post(
         "http://localhost:3000/api/removeImageCloud",
@@ -38,25 +37,28 @@ export async function POST(req: Request) {
         throw new Error(`Failed to remove image: ${response.statusText}`);
       }
     }
-    if (user) {
-      const updatedUser = await prismadb.user.update({
-        where: {
-          email: currentLogIn,
-        },
-        data: {
-          userName,
-          email,
-          imgUrl: imgUrl || user.imgUrl,
-          publicId: publicId || user.publicId,
-        },
-      });
-      return NextResponse.json({
-        message: "Profile updated successfully",
-        updatedUser,
-      });
-    }
+
+    const updatedUser = await prismadb.user.update({
+      where: {
+        email: currentLogIn,
+      },
+      data: {
+        userName,
+        email,
+        imgUrl: imgUrl || user.imgUrl,
+        publicId: publicId || user.publicId,
+      },
+    });
+
+    const shouldSignOut = user.email !== email;
+
+    return NextResponse.json({
+      message: "Profile updated successfully",
+      updatedUser,
+      shouldSignOut,
+    });
   } catch (error: any) {
     console.log("UPDATE PROFILE ERROR", error);
-    return new NextResponse(error, { status: 500 });
+    return new NextResponse(error.message || "Internal Server Error", { status: 500 });
   }
 }

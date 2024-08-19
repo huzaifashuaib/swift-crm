@@ -3,26 +3,32 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
+import { useAppDispatch } from "@/redux/store";
+import { updatePassword } from "@/redux/slices/userSlice";
 
 const useEditPassword = () => {
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [loading, setLoading] = useState(false);
-;
+ 
+  const dispatch=useAppDispatch()
 
   const handleupdatePassword = async () => {
     try {
       setLoading(true);
       if (password != "" && newPassword != "") {
-        await axios.post("/api/updateProfile/updatePassword", {
-          password,
-          newPassword,
-        });
-        setLoading(false);
-        toast.success("Password succesfully Changed ✔");
-        setTimeout(() => {
-          signOut();
-        }, 500);
+        const resultAction=await dispatch(updatePassword({password,newPassword}));
+         setLoading(false);
+         if(updatePassword.rejected.match(resultAction)){
+          const errorMessage = resultAction.payload as string;
+          toast.error(errorMessage);
+        }
+        else{
+          toast.success("Password succesfully Changed ✔");
+          setTimeout(() => {
+            signOut();
+          }, 500);
+        }
       } else {
         toast.error("Please All Inputs");
       }

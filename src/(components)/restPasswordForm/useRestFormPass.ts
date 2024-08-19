@@ -1,3 +1,5 @@
+import { updatePassword } from "@/redux/slices/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +11,9 @@ const useRestFormPass = (token: string) => {
   const [enterPassword, setReEnterPassword] = useState("");
   const [loading, setloading] = useState(false);
   const router = useRouter();
+  const dispatch=useAppDispatch()
+  const error=useAppSelector((state)=>state.auth.error)
+
 
   const handleRestPass = async () => {
     if (
@@ -18,16 +23,18 @@ const useRestFormPass = (token: string) => {
     ) {
       try {
         setloading(true);
-        await axios.post("/api/updatepassword", {
-          newPassword,
-          token,
-        });
+        const resultAction=await dispatch(updatePassword({newPassword,token})).unwrap();
         setloading(false);
-        toast.success("Successfully Updated Password 🔐");
-        router.push("http://localhost:3000/signin");
+        if(updatePassword.rejected.match(resultAction)){
+          const errorMessage = resultAction.payload as string;
+          toast.error(errorMessage);
+        }
+        else{
+          toast.success("Successfully Updated Password 🔐");
+          router.push("http://localhost:3000/signin");
+        }
       } catch (error: any) {
-        console.log(error);
-        toast.error(error?.response?.data);
+      toast.error(error?.response?.status);
       } finally {
         setloading(false);
       }

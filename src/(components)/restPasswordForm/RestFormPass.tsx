@@ -22,7 +22,7 @@ const RestFormPass = ({token}:{token:string}) => {
         value={newPassword}
         label="New Password"
         onchange={(e) => setnewPassword(e.target.value)}
-        placeholder="Enter Email"
+        placeholder="Enter Password"
       />
     </div>
 

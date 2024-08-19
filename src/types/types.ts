@@ -2,8 +2,6 @@
 
 import { ChangeEvent } from "react";
 
-
-
 export type CardType = {
   cardImg: string;
   title: string;
@@ -36,12 +34,10 @@ export type OrderSalesCardType = {
   icon: string;
   text: string;
   statics: number | string;
-  subtext: string; 
+  subtext: string;
 };
 
-
 // Input Feild Type
-
 
 export type InputProps = {
   value?: string;
@@ -49,5 +45,38 @@ export type InputProps = {
   disable?: boolean;
   type?: string;
   label: string;
-  placeholder:string;
+  placeholder: string;
 };
+
+
+export type AUTH_USER = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+export type INITALSTATE = {
+  user: AUTH_USER | USER | null;
+  loading: boolean;
+  error: string | null;
+};
+
+export type RESTPASS = {
+  newPassword: string;
+  token: string;
+};
+export type FORGETPASS = {
+  email: string;
+};
+
+export type USER = {
+  userName: string;
+  email: string;
+  imgUrl: string;
+  publicId: string;
+};
+
+export type UPDATE_USER_PASS={
+  password:string,
+  newPassword:string,
+}

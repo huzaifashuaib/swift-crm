@@ -18,7 +18,6 @@ export async function POST(req: Request) {
     if (userAlreadyExist?.id) {
       return new NextResponse("User Already Exist", { status: 500 });
     }
-
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = await prismadb.user.create({
       data: {
