@@ -2,8 +2,8 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "../libs/authOptions";
 import { redirect } from "next/navigation";
-import Nav from "@/(components)/Nav/Nav";
-import Footer from "@/(components)/Footer/Footer";
+import Nav from "@/(components)/nav/Nav";
+import Footer from "@/(components)/footer/Footer";
 
 type ProtectedRootLayoutProps = {
   children: React.ReactNode;

@@ -4,6 +4,8 @@ import MonthlyIncome from "@/(components)/dashboard/monthlyIncome/MonthlyIncome"
 import SummaryCard from "@/(components)/dashboard/summaryCard/SummaryCard";
 import TargetOrder from "@/(components)/dashboard/targetOrder/TargetOrder";
 import Header from "@/(components)/dashboard/header/Header";
+import CityOrderStatistics from "@/(components)/dashboard/cityOrderStatistics/CityOrderStatistics";
+
 export default function DashBoard() {
   return (
     <div className="">
@@ -23,9 +25,9 @@ export default function DashBoard() {
           </div>
 
           <div className="graphSection flex gap-3 justify-between mb-[21.62px]">
-            <SummaryCard /> 
-            <SummaryCard /> 
-            <SummaryCard /> 
+            <SummaryCard color="rgba(98, 145, 44, 1)" />
+            <SummaryCard color="rgba(237, 77, 92, 1)" />
+            <SummaryCard color="rgba(65, 165, 255, 1)" />
           </div>
 
           <div className="customerSection">
@@ -33,10 +35,15 @@ export default function DashBoard() {
           </div>
         </div>
 
-
-        
         <div className="w-[28%] ml-[21px]">
-          <BestSellingProduct />
+          <div>
+            <BestSellingProduct />
+          </div>
+          <div className="mt-[22px]">
+            <div>
+            <CityOrderStatistics />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import CustomerCard from "@/(components)/customers/customerCard/CustomerCard";
 import CustomerDemographic from "@/(components)/customers/customerDemographic/CustomerDemographic";
 import CustomerStatusTable from "@/(components)/customers/customerStatusTable/CustomerStatusTable";
 import CustomerUsage from "@/(components)/customers/customerUsage/CustomerUsage";
-import Header from "@/(components)/Header/Header";
+import Header from "@/(components)/header/Header";
 import { svgIcon } from "@/constants/svgIcon";
 
 const Customers = () => {

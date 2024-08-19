@@ -1,45 +1,21 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Input from "@/(components)/Input/Input";
-import toast from "react-hot-toast";
-import axios from "axios";
-import { signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { FaSpinner } from "react-icons/fa";
 
-const RegisterForm = () => {
-  useEffect(() => {
-    signOut({
-      redirect: false,
-    });
-  }, []);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [loading, setLoading] = useState(false);
+import Input from "@/(components)/input/Input";
+import useSignupForm from "./useSignupForm";
 
-  const router = useRouter();
-
-  const handleSubmitRegister = async () => {
-    try {
-      setLoading(true)
-      await axios.post("/api/register", {
-        email,
-        password,
-        name,
-      });
-      setLoading(false)
-
-      toast.success("Successfully Added");
-      router.push("/signin");
-    } catch (error: any) {
-      console.log(error);
-      toast.error(error?.response?.data);
-    }
-    finally{
-      setLoading(false)
-    }
-  };
+const SignupForm = () => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    name,
+    setName,
+    loading,
+    handleSubmitRegister,
+    FaSpinner
+  }=useSignupForm();
+ 
 
   return (
     <>
@@ -88,4 +64,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default SignupForm;

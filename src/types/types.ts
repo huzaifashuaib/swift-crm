@@ -1,5 +1,9 @@
 // DashBoard
 
+import { ChangeEvent } from "react";
+
+
+
 export type CardType = {
   cardImg: string;
   title: string;
@@ -16,7 +20,7 @@ export type CustomCircularProgressBarProps = {
   antiClockwise?: boolean;
 };
 
-// customer
+// customer Page
 export type CustomerCardType = {
   svgIcon: string;
   text: string;
@@ -26,11 +30,24 @@ export type CustomerCardType = {
   border?: boolean;
 };
 
-// orders
+// orders Page
 
 export type OrderSalesCardType = {
   icon: string;
   text: string;
   statics: number | string;
   subtext: string; 
+};
+
+
+// Input Feild Type
+
+
+export type InputProps = {
+  value?: string;
+  onchange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  disable?: boolean;
+  type?: string;
+  label: string;
+  placeholder:string;
 };

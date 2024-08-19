@@ -1,4 +1,4 @@
-import ForgetForm from '@/(components)/ForgetPassForm/ForgetForm'
+import ForgetForm from '@/(components)/forgetPassForm/ForgetForm'
 import Image from 'next/image'
 import React from 'react'
 import { svgIcon } from '@/constants/svgIcon'

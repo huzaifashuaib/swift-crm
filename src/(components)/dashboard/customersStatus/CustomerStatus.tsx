@@ -1,17 +1,47 @@
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const CustomerStatus = () => {
   const { customerImg } = svgIcon;
   return (
     <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <div>
           <h1 className="text-cardMainHead text-base font-semibold">
             New Customers
           </h1>
         </div>
-        <div>1,2,3</div>
+        
+        <div>
+          <div className="flex items-center justify-center my-4">
+            <button className="px-[9.19px] py-[9.30px] text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-100">
+              <MdKeyboardArrowLeft />
+            </button>
+            
+            <button className="px-[13px] py-[9.90px] text-[9.96px] border border-btnColor leading-[14.94px] bg-btnColor text-white hover:bg-activeLink hover:text-black">
+              1
+            </button>
+
+            <button className="px-[13px] py-[9.90px] text-[9.96px] border border-gray-200 leading-[14.94px] bg-white text-black hover:bg-activeLink hover:text-black hover:border-btnColor">
+              2
+            </button>
+            <button className="px-[13px] py-[9.90px] text-[9.96px] border border-gray-200 leading-[14.94px] bg-white text-black hover:bg-activeLink hover:text-black hover:border-btnColor">
+              3
+            </button>
+            <button className="px-[13px] py-[9.90px] text-[9.96px] border border-gray-200 leading-[14.94px] bg-white text-black hover:bg-activeLink hover:text-black hover:border-btnColor">
+              4
+            </button>
+            <button className="px-[13px] py-[9.90px] text-[9.96px] border border-gray-200 leading-[14.94px] bg-white text-black hover:bg-activeLink hover:text-black hover:border-btnColor">
+              5
+            </button>
+
+            <button className="px-[9.19px] py-[9.30px] text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-100">
+              <MdKeyboardArrowRight />
+            </button>
+          </div>
+        </div>
+
       </div>
       <div className="border-b border-gray-200 my-3"></div>
       <div>

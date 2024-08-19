@@ -10,6 +10,6 @@ export const COLORS={
   cardBottomColor:'#9A55FF',
   success:'#E1F4CB',
   tableHeadColor:'#EFE6FF',
-  orderSpanColor:'#ADB5BD'
-
+  orderSpanColor:'#ADB5BD',
+  themeLight:"#F8F9FA"
 }

@@ -53,9 +53,26 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  // pages: {
-  //   signIn: "/signin",
-  // },
+
+
+  callbacks: {
+    async session({ session }) {
+      if (session?.user?.email) {
+        const user = await prismadb.user.findUnique({
+          where: { email: session.user.email },
+        });
+
+        if (user) {
+          session.user.name =user?.userName;
+          session.user.image = user?.imgUrl;
+        }
+      }
+
+      return session;
+    },
+
+  },
+ 
 
   debug: process.env.NODE_ENV !== "production",
 };

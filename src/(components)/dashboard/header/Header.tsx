@@ -1,19 +1,25 @@
-import { CiSearch } from "react-icons/ci";
-import { svgIcon } from "@/constants/svgIcon";
+import { CiSearch } from "react-icons/ci";;
 import Image from "next/image";
+import useHeader from "./useHeader";
+const Header = async() => {
+  const {userImage,userName}=await useHeader()
 
-const Header = () => {
-    const {profileImg}=svgIcon;
   return (
     <div className="flex justify-between items-center">
       <div className="profile flex items-center gap-[22px]">
-        <div className="image">
-        <Image src={profileImg} alt=""/>
-        </div>
+      <div className="rounded-full overflow-hidden w-[89px] h-[89px]">
+            <Image
+              src={userImage}
+              alt=""
+              width={89}
+              height={89} 
+              className="rounded-full object-cover" 
+            />
+          </div>
         <div className="profile-info">
           <h1>
             <span>Welcome Back, </span>
-            <span>Sophia Chester</span>
+            <span>{userName}</span>
           </h1>
           <p>Here are your monthly store updates.</p>
         </div>

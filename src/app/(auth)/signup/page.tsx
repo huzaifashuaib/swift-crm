@@ -1,7 +1,6 @@
-import FormRegister from "@/(components)/SignupForm/RegisterForm";
-import React from "react";
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
+import SignupForm from "@/(components)/signupForm/SignupForm";
 
 const SignUpPage = () => {
   const { logo } = svgIcon;
@@ -13,7 +12,7 @@ const SignUpPage = () => {
             <Image src={logo} alt="" width={140} />
           </div>
           <h2 className="text-2xl font-semibold mb-6 text-center">Sign Up</h2>
-          <FormRegister />
+          <SignupForm />
         </div>
       </div>
     </>

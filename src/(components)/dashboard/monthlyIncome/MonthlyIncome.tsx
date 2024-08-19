@@ -1,6 +1,6 @@
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
-import Graph from "../../../../public/assets/dashboard-svg/Graph.png";
+import BarChart from "./BarChart/BarChart";
 
 const MonthlyIncome = () => {
   const { buttonImg, arrowImg } = svgIcon;
@@ -8,7 +8,7 @@ const MonthlyIncome = () => {
   return (
     <div className="bg-[#FFFFFF] py-6 px-4 rounded-[10.5px] border-custom border-custom-border-color h-full">
       <div className="flex gap-3">
-        <div className="monthlyIconStatus w-1/2">
+        <div className="monthlyIconStatus w-[45%]">
           <div className="monthlyTittle">
             <h1 className="text-cardMainHead text-base font-semibold mb-4">
               Monthly Income
@@ -51,8 +51,8 @@ const MonthlyIncome = () => {
             </div>
           </div>
         </div>
-        <div className="monthlyGraph w-1/2">
-          <Image src={Graph} alt="" className="h-full" />
+        <div className="monthlyGraph w-[55%]">
+          <BarChart />
         </div>
       </div>
     </div>

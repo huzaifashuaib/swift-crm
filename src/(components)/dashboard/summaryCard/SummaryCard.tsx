@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { svgIcon } from "@/constants/svgIcon";
+import LineChart from "./LineGraph/LineGraph";
 
-const SummaryCard = () => {
+const SummaryCard = ({color}:{color:string}) => {
   const { arrowImg, profitBtn, graphProfit } = svgIcon;
   return (
     <div className="bg-[#FFFFFF] py-[21.25px] px-4 border-custom border-custom-border-color rounded-[10.5px]">
@@ -25,7 +26,7 @@ const SummaryCard = () => {
         </div>
       </div>
       <div className="graph">
-        <Image src={graphProfit} alt="" />
+        <LineChart color={color} />
       </div>
     </div>
   );

@@ -1,15 +1,6 @@
-import React, { ChangeEvent } from "react";
+import { InputProps } from "@/types/types";
 
-type inputProps = {
-  value?: string;
-  onchange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  disable?: boolean;
-  type?: string;
-  label: string;
-  placeholder:string;
-};
-
-const Input = ({ value, onchange, disable, type, label,placeholder }: inputProps) => {
+const Input = ({ value, onchange, disable, type, label,placeholder }: InputProps) => {
   return (
     <>
       <div className="mb-4">

@@ -9,7 +9,6 @@ export async function POST(req: Request) {
     if (!newPassword && !token) {
       return new NextResponse("Missing Data", { status: 500 });
     }
-
     const newHashedPassword = await bcrypt.hash(newPassword, 12);
     const result = await prismadb.user.updateMany({
       where: {

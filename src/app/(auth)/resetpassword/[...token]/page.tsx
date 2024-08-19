@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { svgIcon } from '@/constants/svgIcon'
-import RestFormPass from '@/(components)/RestPassword/RestFormPass'
+import RestFormPass from '@/(components)/restPasswordForm/RestFormPass'
 
 const ResetPassword = ({params}:any) => {
     const token=params.token[0]
