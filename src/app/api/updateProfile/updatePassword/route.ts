@@ -23,6 +23,8 @@ export async function POST(req: Request) {
       },
     });
    
+
+
     let isPasswordValid = false;
     
     if (password && user?.hashedPassword) {

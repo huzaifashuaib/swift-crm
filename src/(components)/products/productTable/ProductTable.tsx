@@ -3,6 +3,8 @@ import CustomBtn from "@/(components)/customBtn/CustomBtn";
 import useProductTable from "./useProductTable";
 import { FaSpinner } from "react-icons/fa";
 import EditProduct from "./editProduct/EditProduct";
+import { PRODUCT } from "@/types/types";
+import DeleteProduct from "./deleteProduct/DeleteProduct";
 
 const ProductTable = () => {
   const { products, fetchProducts, loading } = useProductTable();
@@ -59,9 +61,9 @@ const ProductTable = () => {
                   <FaSpinner className="animate-spin mr-2 inline-block" />
                 </td>
               </tr>
-            ) : products.length !== 0 ? (
-              products.map((product:any, index) => (
-                <tr key={index} className="bg-white hover:bg-gray-50">
+            ) : products?.length !== 0  ? (
+              products?.map((product:PRODUCT, index) => (
+                <tr key={product.id} className="bg-white hover:bg-gray-50">
                   <td className="w-4 p-4">
                     <div className="flex items-center">
                       <input
@@ -107,9 +109,7 @@ const ProductTable = () => {
                   <td>
                     <div className="my-[6.64px] flex items-center gap-[13.28px]">
                   <EditProduct />
-                      <button>
-                        <CustomBtn text="Delete" />
-                      </button>
+                      <DeleteProduct id={product.id} />
                     </div>
                   </td>
                 </tr>

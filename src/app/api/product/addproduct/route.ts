@@ -7,11 +7,12 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { formData } = body;
     const { name, price, quantity, category, description } = formData;
-    const id = nanoid(24);
+    if(name=="" || price=="" || quantity=="" || category=="" || description==""){
+      return new NextResponse("Please All Fields")
+    }
 
     const newProduct = await prismadb.product.create({
       data: {
-        id,
         name,
         price,
         category,
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
         description,
       },
     });
+
     return NextResponse.json(newProduct);
 
     // return NextResponse.json(body);

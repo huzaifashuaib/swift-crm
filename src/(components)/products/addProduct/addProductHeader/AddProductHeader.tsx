@@ -1,13 +1,13 @@
 import { CiSearch } from "react-icons/ci";
 import AddProductForm from "../addProductForm/AddProductForm";
+import CountProduct from "./countProduct/CountProduct";
 
 const AddProductHeader = () => {
+
   return (
     <div className="flex justify-between items-center">
       <div className="links flex items-center">
-        <h1 className="border-b-4 border-b-btnColor px-2 py-4 text-base font-semibold text-btnColor">
-          Products (0)
-        </h1>
+       <CountProduct />
       </div>
 
       <div className="flex items-center gap-4">

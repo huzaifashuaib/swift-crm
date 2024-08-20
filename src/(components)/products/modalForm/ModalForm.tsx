@@ -20,7 +20,6 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, toggleModal, title, child
     >
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative bg-white rounded-lg shadow border-2 border-btnColor">
-          {/* Modal Header */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b-2 rounded-t border-btnColor">
             <h3 className="text-lg font-bold text-btnColor">
               {title}
@@ -49,7 +48,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, toggleModal, title, child
             </button>
           </div>
 
-          {/* Modal Body */}
+       
           <div className="p-4 md:p-5">
             {children}
           </div>

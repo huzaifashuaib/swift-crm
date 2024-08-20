@@ -48,7 +48,6 @@ export type InputProps = {
   placeholder: string;
 };
 
-
 export type AUTH_USER = {
   name: string;
   email: string;
@@ -76,7 +75,24 @@ export type USER = {
   publicId: string;
 };
 
-export type UPDATE_USER_PASS={
-  password:string,
-  newPassword:string,
-}
+export type UPDATE_USER_PASS = {
+  password: string;
+  newPassword: string;
+};
+
+export type FORMDATA = {
+  id?: string;
+  name: string;
+  price: number;
+  quantity: number;
+  category: string;
+  description: string;
+};
+
+export type PRODUCT=FORMDATA
+
+export type PRODUCT_INITALSTATE = {
+ product:[],
+ loading: boolean;
+ error: string | null;
+};
