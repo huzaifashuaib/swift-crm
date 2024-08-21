@@ -1,5 +1,4 @@
 "use client"
-
 import CustomBtn from "@/(components)/customBtn/CustomBtn";
 import useDeleteProduct from "./useDeleteProduct";
 
@@ -8,7 +7,7 @@ const DeleteProduct = ({ id }: { id: string | undefined }) => {
 
     return (
         <button onClick={handleDelete} disabled={loading}>
-            {loading ? <FaSpinner className=" animate-spin" /> : <CustomBtn text="Delete" />}
+            {loading ? <FaSpinner className=" animate-spin text-center" /> : <CustomBtn text="Delete"  />}
         </button>
     );
 };

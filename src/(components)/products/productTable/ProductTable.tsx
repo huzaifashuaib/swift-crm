@@ -61,8 +61,8 @@ const ProductTable = () => {
                   <FaSpinner className="animate-spin mr-2 inline-block" />
                 </td>
               </tr>
-            ) : products?.length !== 0  ? (
-              products?.map((product:PRODUCT, index) => (
+            ) : products?.length !== 0 ? (
+              products?.map((product: PRODUCT, index) => (
                 <tr key={product.id} className="bg-white hover:bg-gray-50">
                   <td className="w-4 p-4">
                     <div className="flex items-center">
@@ -108,7 +108,7 @@ const ProductTable = () => {
 
                   <td>
                     <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                  <EditProduct />
+                      <EditProduct id={product.id} />
                       <DeleteProduct id={product.id} />
                     </div>
                   </td>

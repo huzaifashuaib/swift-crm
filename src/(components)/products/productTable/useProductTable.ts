@@ -1,5 +1,5 @@
 "use client";
-import { getProduct } from '@/redux/slices/productSlice';
+import { getAllProduct } from '@/redux/slices/productSlice';
 import { useAppDispatch } from '@/redux/store';
 import { PRODUCT } from '@/types/types';
 import { useEffect, useState } from 'react';
@@ -13,13 +13,12 @@ const useProductTable = () => {
     const fetchProducts = async () => {
         setLoading(true);
         try {
-         
-            const resultAction = await dispatch(getProduct());
+            const resultAction = await dispatch(getAllProduct());
             setLoading(false);
-            if (getProduct.fulfilled.match(resultAction)) {
+            if (getAllProduct.fulfilled.match(resultAction)) {
                 setProducts(resultAction.payload || []);
                 toast.success("Products successfully fetched");
-            } else if (getProduct.rejected.match(resultAction)) {
+            } else if (getAllProduct.rejected.match(resultAction)) {
                 const errorMessage = resultAction.payload as string;
                 toast.error(errorMessage);
             }

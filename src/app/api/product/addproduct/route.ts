@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
-import { nanoid } from "nanoid";
 
 export async function POST(req: Request) {
   try {
@@ -23,7 +22,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(newProduct);
 
-    // return NextResponse.json(body);
   } catch (error: any) {
     console.log("ADD PRODUCT ERROR", error);
     return new NextResponse(error, { status: 500 });
