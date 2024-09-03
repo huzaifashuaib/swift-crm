@@ -3,8 +3,11 @@ import { addProduct } from "@/redux/slices/productSlice";
 import { useAppDispatch } from "@/redux/store";
 import { ChangeEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { IoMdAdd } from "react-icons/io";
 import { FaSpinner } from "react-icons/fa";
+import { CloudinaryUploadWidgetResults } from "next-cloudinary";
+import { CldUploadButton } from "next-cloudinary";
+import { IoMdAdd } from "react-icons/io";
+import { FaPlus } from "react-icons/fa";
 
 const useAddProductForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +21,34 @@ const useAddProductForm = () => {
     quantity: "",
     category: "",
     description: "",
+    publicId:"",
+    imgUrl:""
+
   });
+
+
+  const handleUpload = (result: CloudinaryUploadWidgetResults) => {
+    const info = result?.info;
+    if (
+      typeof info === "object" &&
+      info &&
+      "secure_url" in info &&
+      "public_id" in info
+    ) {
+      const url = info.secure_url as string;
+      const public_id = info.public_id as string;
+     
+      setFormData((prevState) => ({
+        ...prevState,
+        imgUrl:url,
+        publicId:public_id
+      }));
+
+    } else {
+      toast.error("Failed to retrieve the URL or public ID from Cloudinary.");
+    }
+  };
+
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -53,10 +83,11 @@ const useAddProductForm = () => {
           quantity: "",
           category: "",
           description: "",
+          publicId:"",
+          imgUrl:""
         });
       }
     } catch (error: any) {
-      console.log(error);
       toast.error(error?.response?.data);
     }
   };
@@ -70,6 +101,9 @@ const useAddProductForm = () => {
     handleSubmit,
     isLoading,
     FaSpinner,
+    handleUpload,
+    CldUploadButton,
+    FaPlus
   };
 };
 

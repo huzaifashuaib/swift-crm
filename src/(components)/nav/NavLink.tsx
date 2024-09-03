@@ -25,7 +25,8 @@ const NavLink = () => {
     isOpen,
     IoMdArrowDropdown,
     MdOutlineAdd,
-    CiShop
+    CiShop,
+    BsCart4
   } = useNav();
 
   return (
@@ -89,7 +90,7 @@ const NavLink = () => {
           </div>
 
           <div
-            className={`ml-8 px-4 py-2 ${
+            className={`ml-8 px-4 mb-2 py-2 ${
               isActive("/ecommerce/products") && "bg-activeLink rounded-[4px]"
             } hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor`}
           >
@@ -107,6 +108,27 @@ const NavLink = () => {
               </h2>
             </Link>
           </div>
+
+          <div
+            className={`ml-8 px-4 py-2 ${
+              isActive("/ecommerce/orders") && "bg-activeLink rounded-[4px]"
+            } hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor`}
+          >
+            <Link
+              href={"/ecommerce/orders"}
+              className={`flex items-center gap-2`}
+            >
+              <div className={`${isActive("/ecommerce/orders") ? "text-btnColor" : "text-black"}`}><BsCart4 /></div>
+              <h2
+                className={`text-base ${
+                  isActive("/ecommerce/orders") && "text-btnColor"
+                }`}
+              >
+                Orders
+              </h2>
+            </Link>
+          </div>
+
         </div>
 
         <div

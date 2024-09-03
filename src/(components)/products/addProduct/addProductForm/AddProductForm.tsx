@@ -1,8 +1,7 @@
 "use client";
+import Image from "next/image";
 import ModalForm from "../../modalForm/ModalForm";
 import useAddProductForm from "./useAddProductForm";
-
-import { IoMdAdd } from "react-icons/io";
 
 const AddProductForm = () => {
   const {
@@ -13,6 +12,10 @@ const AddProductForm = () => {
     handleSubmit,
     isLoading,
     FaSpinner,
+    IoMdAdd,
+    FaPlus,
+    handleUpload,
+    CldUploadButton,
   } = useAddProductForm();
 
   return (
@@ -36,6 +39,31 @@ const AddProductForm = () => {
       >
         <form onSubmit={handleSubmit}>
           <div className="grid gap-4 mb-4 grid-cols-2">
+           
+              <div className="flex justify-center items-center my-4 col-span-2">
+                <CldUploadButton
+                  uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET_KEY}
+                  className={`bg-gray-100 h-28 w-28  border-4 border-btnColor shadow-sm rounded-full relative ${
+                    formData.imgUrl
+                  }`}
+                  onSuccess={handleUpload}
+                >
+                  <div className="flex justify-center items-center">
+                    <FaPlus className="text-cardHead " />
+                  </div>
+                  <div>
+                    {formData.imgUrl && (
+                      <Image
+                        src={formData.imgUrl}
+                        alt=""
+                        fill
+                        className="absolute object-cover inset-0 h-24 w-24 rounded-full"
+                      />
+                    )}
+                  </div>
+                </CldUploadButton>
+              </div>
+            
             <div className="col-span-2">
               <label
                 htmlFor="name"
@@ -133,23 +161,26 @@ const AddProductForm = () => {
           </div>
           <div>
             <button
-            disabled={isLoading}
+              disabled={isLoading}
               type="submit"
               className="text-white inline-flex items-center bg-btnColor hover:bg-dark-btnColor focus:ring-4 focus:outline-none focus:ring-btnColor font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
-              {isLoading ? <FaSpinner className="animate-spin mr-2 inline-block" />:
-              <svg
-                className="me-1 -ms-1 w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                  clipRule="evenodd"
-                />
-              </svg>}
+              {isLoading ? (
+                <FaSpinner className="animate-spin mr-2 inline-block" />
+              ) : (
+                <svg
+                  className="me-1 -ms-1 w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
               Add New Product
             </button>
           </div>

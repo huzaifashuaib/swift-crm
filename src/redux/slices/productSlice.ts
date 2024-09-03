@@ -1,9 +1,11 @@
 import { PRODUCT, PRODUCT_INITALSTATE } from "@/types/types";
 import instance from "@/utils/axiosInstance/axiosInstance";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const initialState: PRODUCT_INITALSTATE = {
   product: [],
+  cart: [],
   error: null,
   loading: false,
 };
@@ -58,7 +60,7 @@ export const editProduct = createAsyncThunk(
   async ({ id }: { id: string }, { rejectWithValue }) => {
     try {
       const response = await instance.post("/product/editProduct", {
-        id ,
+        id,
       });
       return response?.data;
     } catch (error: any) {
@@ -84,7 +86,64 @@ export const updateProduct = createAsyncThunk(
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      const productId = action.payload;
+      const currentState = current(state);
+      const productToAddIndex = currentState.product.findIndex(
+        (product) => product.id === productId
+      );
+      if (productToAddIndex !== -1) {
+        const productToAdd = currentState.product[productToAddIndex];
+        if (productToAdd.quantity > 0) {
+          const updatedProduct = {
+            ...productToAdd,
+            quantity: productToAdd.quantity - 1,
+          };
+          state.product[productToAddIndex] = updatedProduct;
+
+          const productInCart = state.cart.find(
+            (product) => product.id === productId
+          );
+          if (productInCart) {
+            productInCart.quantity += 1;
+          } else {
+            state.cart.push({ ...updatedProduct, quantity: 1 });
+          }
+        } 
+      }
+    },
+
+    removeCartProduct: (state, action) => {
+      const productId = action.payload;
+      const currentState = current(state);
+      const productInCartIndex = currentState.cart.findIndex(
+        (product) => product.id === productId
+      );
+
+      if (productInCartIndex !== -1) {
+        const productInCart = state.cart[productInCartIndex];
+
+        if (productInCart.quantity > 1) {
+          state.cart[productInCartIndex].quantity -= 1;
+        } else {
+          state.cart.splice(productInCartIndex, 1);
+        }
+
+        const productInInventoryIndex = currentState.product.findIndex(
+          (product) => product.id === productId
+        );
+
+        if (productInInventoryIndex !== -1) {
+          state.product[productInInventoryIndex].quantity += 1;
+        } 
+      }
+    },
+ 
+    clearCart:(state)=>{
+      state.cart=[]
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(addProduct.pending, (state) => {
@@ -125,5 +184,5 @@ const productSlice = createSlice({
       });
   },
 });
-
+export const { addToCart, removeCartProduct,clearCart } = productSlice.actions;
 export default productSlice.reducer;

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdOutlineAdd } from "react-icons/md";
 import { CiShop } from "react-icons/ci";
+import { BsCart4 } from "react-icons/bs";
+
 
 
 const useNav = () => {
@@ -57,7 +59,8 @@ const useNav = () => {
     isOpen,
     IoMdArrowDropdown,
     MdOutlineAdd,
-    CiShop
+    CiShop,
+    BsCart4
   };
 };
 

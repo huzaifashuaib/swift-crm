@@ -75,6 +75,7 @@ export type USER = {
   publicId: string;
 };
 
+
 export type UPDATE_USER_PASS = {
   password: string;
   newPassword: string;
@@ -87,12 +88,36 @@ export type FORMDATA = {
   quantity: number;
   category: string;
   description: string;
+  imgUrl?: string;
+  publicId?: string;
 };
 
-export type PRODUCT=FORMDATA
+export type PRODUCT = FORMDATA;
 
 export type PRODUCT_INITALSTATE = {
- product:[],
- loading: boolean;
- error: string | null;
+  product: FORMDATA[];
+  cart: FORMDATA[];
+  loading: boolean;
+  error: string | null;
+};
+
+
+export type ORDER_FORMDATA = {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  phoneNumber: string;
+  postCode: string; 
+  products?: FORMDATA[];
+  totalBill?:number
+  status?:string
+};
+
+
+export type ORDER_INITALSTATE = {
+  order: [] | ORDER_FORMDATA[];
+  loading: boolean;
+  error: string | null;
 };

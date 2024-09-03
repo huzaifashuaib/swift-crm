@@ -29,4 +29,20 @@ model Product {
   description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  imgUrl  String?
+  publicId String?
+}
+
+
+model Order {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName   String
+  lastName    String
+  address     String
+  city        String
+  phoneNumber String
+  postCode    String
+  products    Json  
+  totalBill   Int?
+  status      String?
 }

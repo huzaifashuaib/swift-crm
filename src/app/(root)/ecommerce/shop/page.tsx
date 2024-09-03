@@ -1,7 +1,9 @@
+import EcommerceStore from "@/(components)/ecommerceStore/EcommerceStore"
+
 const page = () => {
   return (
     <div>
-        Shop Data 
+      <EcommerceStore />
     </div>
   )
 }

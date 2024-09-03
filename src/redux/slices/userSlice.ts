@@ -1,7 +1,7 @@
 import { INITALSTATE, UPDATE_USER_PASS, USER } from "@/types/types";
 import instance from "@/utils/axiosInstance/axiosInstance";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { stat } from "fs/promises";
+
 
 const initialState: INITALSTATE = {
   user: null,

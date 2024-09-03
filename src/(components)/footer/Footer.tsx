@@ -56,7 +56,7 @@ const Footer = () => {
 
         <div>
           <div>
-            <p className="text-cardMainHead text-base font-medium">&copy; 2023 Mugna Technologies, Inc.</p>
+            <p className="text-cardMainHead text-base font-medium">&copy; 2024 Mugna Technologies, Inc.</p>
           </div>
         </div>
 

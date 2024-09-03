@@ -11,6 +11,7 @@ const useProductTable = () => {
     const [products, setProducts] = useState<PRODUCT[]>([]);
 
     const fetchProducts = async () => {
+
         setLoading(true);
         try {
             const resultAction = await dispatch(getAllProduct());
@@ -30,7 +31,7 @@ const useProductTable = () => {
 
     useEffect(() => {
         fetchProducts();
-    }, [dispatch]);
+    }, []);
 
     return {
         products,
