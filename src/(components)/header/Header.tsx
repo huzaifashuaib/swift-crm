@@ -1,6 +1,6 @@
 import Image from "next/image";
 import useHeader from "./useHeader";
-import Example from "./datepicker/DateRangePicker";
+import DateRange from "./datepicker/DateRangePicker";
 
 
 const Header = async ({ pageName }: { pageName: string }) => {
@@ -13,7 +13,7 @@ const Header = async ({ pageName }: { pageName: string }) => {
       </div>
       <div className="flex items-center gap-4">
         <div>
-         <Example />
+         <DateRange />
         </div>
         <div className="flex items-center gap-2">
         <div className="rounded-full overflow-hidden w-[53px] h-[53px]">

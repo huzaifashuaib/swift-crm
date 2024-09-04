@@ -13,7 +13,9 @@ export async function POST(req: Request) {
       phoneNumber,
       postCode,
       products,
-      totalBill
+      totalBill,
+      date,
+      totalProfit
     } = orderDetail;
 
     if (
@@ -24,7 +26,9 @@ export async function POST(req: Request) {
       !phoneNumber ||
       !postCode ||
       !products ||
-      !totalBill
+      !totalBill ||
+      !date ||
+      !totalProfit
     ) {
       return new NextResponse("Please fill all fields", { status: 400 });
     }
@@ -38,7 +42,9 @@ export async function POST(req: Request) {
         phoneNumber,
         postCode,
         products,
-        totalBill
+        totalBill,
+        date,
+        totalProfit
       },
     });
 

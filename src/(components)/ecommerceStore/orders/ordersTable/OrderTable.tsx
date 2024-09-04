@@ -140,7 +140,7 @@ const OrderTable = () => {
                       {btnLoading == order.id ? (
                         <FaSpinner className=" animate-spin text-center" />
                       ) : (
-                        <CustomBtn text={order.status=="completed" ? "Delivered" :"pending"} />
+                        <CustomBtn text={order.status=="completed" ? "Delivered" :"Pending"} />
                       )}
                     </button>
                   </td>

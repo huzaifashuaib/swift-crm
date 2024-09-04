@@ -22,7 +22,8 @@ const useAddProductForm = () => {
     category: "",
     description: "",
     publicId:"",
-    imgUrl:""
+    imgUrl:"",
+    purchasePrice:""
 
   });
 
@@ -66,6 +67,7 @@ const useAddProductForm = () => {
       ...formData,
       price: parseFloat(formData.price),
       quantity: parseInt(formData.quantity, 10),
+      purchasePrice:parseInt(formData.purchasePrice, 10),
     };
     try {
       setLoading(true);
@@ -84,7 +86,8 @@ const useAddProductForm = () => {
           category: "",
           description: "",
           publicId:"",
-          imgUrl:""
+          imgUrl:"",
+          purchasePrice:""
         });
       }
     } catch (error: any) {

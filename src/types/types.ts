@@ -88,6 +88,7 @@ export type FORMDATA = {
   quantity: number;
   category: string;
   description: string;
+  purchasePrice:number;
   imgUrl?: string;
   publicId?: string;
 };
@@ -113,6 +114,8 @@ export type ORDER_FORMDATA = {
   products?: FORMDATA[];
   totalBill?:number
   status?:string
+  date?:string
+  totalProfit?:number
 };
 
 

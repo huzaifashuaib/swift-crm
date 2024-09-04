@@ -5,8 +5,8 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { formData } = body;
-    const { name, price, quantity, category, description,imgUrl,publicId } = formData;
-    if(name=="" || price=="" || quantity=="" || category=="" || description=="" || imgUrl==""){
+    const { name, price, quantity, category, description,imgUrl,publicId,purchasePrice } = formData;
+    if(name=="" || price=="" || quantity=="" || category=="" || description=="" || imgUrl=="" || purchasePrice==""){
       return new NextResponse("Please All Fields")
     }
 
@@ -18,7 +18,8 @@ export async function POST(req: Request) {
         quantity,
         description,
         imgUrl,
-        publicId
+        publicId,
+        purchasePrice
       },
     });
 

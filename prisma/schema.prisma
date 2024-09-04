@@ -31,6 +31,7 @@ model Product {
   updatedAt   DateTime @updatedAt
   imgUrl  String?
   publicId String?
+  purchasePrice Int?
 }
 
 
@@ -44,5 +45,7 @@ model Order {
   postCode    String
   products    Json  
   totalBill   Int?
+  totalProfit Int?
   status      String?
+  date        String?
 }

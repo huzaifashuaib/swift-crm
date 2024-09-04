@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Chart, ChartConfiguration, ChartOptions } from "chart.js/auto";
 import zoomPlugin from "chartjs-plugin-zoom";
 import { format, parseISO } from "date-fns";
+import { useAppSelector } from "@/redux/store";
 
 type ChartType = Chart<'bar', number[], string>;
 
@@ -12,8 +13,7 @@ Chart.register(zoomPlugin);
 export default function BarGraph() {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<ChartType | null>(null);
-  const [startDate, setStartDate] = useState<string>("2024-02-01");
-  const [endDate, setEndDate] = useState<string>("2024-09-01");
+  const { startDate, endDate } = useAppSelector((state) => state.date);
 
   useEffect(() => {
     const canvas = chartRef.current;
@@ -30,8 +30,8 @@ export default function BarGraph() {
         const allDates = ["2024-02-01", "2024-03-01", "2024-04-01", "2024-05-01", "2024-06-01", "2024-08-01", "2024-09-01"];
 
         const filterDataByDate = () => {
-          const start = new Date(startDate).getTime();
-          const end = new Date(endDate).getTime();
+          const start = startDate ? new Date(startDate).getTime() : -Infinity;
+          const end = endDate ? new Date(endDate).getTime() : Infinity;
           
           const filteredLabels: string[] = [];
           const filteredData: number[] = [];
@@ -61,7 +61,7 @@ export default function BarGraph() {
         const config: ChartConfiguration<'bar', number[], string> = {
           type: 'bar',
           data: {
-            labels: formattedLabels, // Use formatted labels here
+            labels: formattedLabels,
             datasets: [
               {
                 label: 'Dataset 1',
@@ -123,8 +123,8 @@ export default function BarGraph() {
                 },
               },
               tooltip: {
-                titleAlign:"center",
-                bodyAlign:"center",
+                titleAlign: "center",
+                bodyAlign: "center",
                 callbacks: {
                   label: (tooltipItem) => {
                     const value = tooltipItem.raw as number;
@@ -158,20 +158,6 @@ export default function BarGraph() {
 
   return (
     <div className="w-full h-full">
-      {/* <div className="flex space-x-4 mb-4">
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-      </div> */}
       <div className="relative w-full h-full">
         <canvas ref={chartRef} className="w-full h-full" />
       </div>

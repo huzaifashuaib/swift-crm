@@ -140,6 +140,24 @@ const AddProductForm = () => {
                 required
               />
             </div>
+            <div className="col-span-2">
+              <label
+                htmlFor="purchasePrice"
+                className="block mb-2 text-sm font-semibold text-btnColor"
+              >
+                Purchase Price
+              </label>
+              <input
+                type="number"
+                name="purchasePrice"
+                id="purchasePrice"
+                value={formData.purchasePrice}
+                onChange={handleChange}
+                className="bg-white border border-btnColor text-black text-sm rounded-lg focus:ring-btnColor focus:border-btnColor block w-full p-2.5 placeholder-btnColor"
+                placeholder="0"
+                required
+              />
+            </div>
 
             <div className="col-span-2">
               <label

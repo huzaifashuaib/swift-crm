@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+
+import { useEffect, useRef } from "react";
 import { Chart, ChartConfiguration, ChartOptions } from "chart.js/auto";
 import zoomPlugin from "chartjs-plugin-zoom";
-import { format, parseISO } from "date-fns"; 
+import { format, parseISO } from "date-fns";
+import { useAppSelector } from "@/redux/store";
+
 type ChartType = Chart<'line', (number | null)[], string>;
 
 Chart.register(zoomPlugin);
@@ -10,10 +13,9 @@ Chart.register(zoomPlugin);
 export default function LineGraph() {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<ChartType | null>(null);
-
-  const [startDate, setStartDate] = useState<string>("2024-02-01");
-  const [endDate, setEndDate] = useState<string>("2024-09-01");
-
+  const { startDate, endDate } = useAppSelector((state) => state.date);
+  const data = useAppSelector((state) => state.order);
+  console.log(data);
 
   const allDataValues = [1000, 4700, 8400, 12100, 15800, 19500, 16500];
   const allDataValues2 = [1500, 3700, 5400, 13100, 12800, 18500, 12000];
@@ -21,8 +23,8 @@ export default function LineGraph() {
 
   useEffect(() => {
     const filterDataByDate = () => {
-      const start = new Date(startDate).getTime();
-      const end = new Date(endDate).getTime();
+      const start = startDate ? new Date(startDate).getTime() : -Infinity;
+      const end = endDate ? new Date(endDate).getTime() : Infinity;
 
       const filteredLabels: string[] = [];
       const filteredData: (number | null)[] = [];
@@ -37,6 +39,7 @@ export default function LineGraph() {
         }
       });
 
+      console.log('Filtered Data:', { filteredLabels, filteredData, filteredData2 });
       return { filteredLabels, filteredData, filteredData2 };
     };
 
@@ -58,7 +61,7 @@ export default function LineGraph() {
             labels: filteredLabels, 
             datasets: [
               {
-                label: '',
+                label: 'Dataset 1',
                 data: filteredData,
                 fill: true,
                 backgroundColor: 'transparent',
@@ -72,7 +75,7 @@ export default function LineGraph() {
                 spanGaps: true,
               },
               {
-                label: '',
+                label: 'Dataset 2',
                 data: filteredData2,
                 fill: true,
                 backgroundColor: 'transparent',
@@ -100,7 +103,6 @@ export default function LineGraph() {
                   minRotation: 0,
                   maxRotation: 0,
                   callback: function (value, index) {
-                   
                     return format(parseISO(filteredLabels[index]), "d MMM");
                   }
                 }
@@ -149,22 +151,6 @@ export default function LineGraph() {
         };
 
         chartInstanceRef.current = new Chart(ctx, config);
-
-      
-        const handleResize = () => {
-          if (chartInstanceRef.current) {
-            chartInstanceRef.current.resize();
-          }
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => {
-          window.removeEventListener('resize', handleResize);
-          if (chartInstanceRef.current) {
-            chartInstanceRef.current.destroy();
-            chartInstanceRef.current = null;
-          }
-        };
       } else {
         console.error("Unable to get canvas context.");
       }
@@ -173,22 +159,28 @@ export default function LineGraph() {
     }
   }, [startDate, endDate]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.resize();
+      }
+    };
+
+    // Add resize listener only on the client side
+    if (typeof window !== "undefined") {
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        if (chartInstanceRef.current) {
+          chartInstanceRef.current.destroy();
+          chartInstanceRef.current = null;
+        }
+      };
+    }
+  }, []); // Empty dependency array ensures this effect runs once after initial render
+
   return (
     <div className="w-full h-full">
-      {/* <div className="flex space-x-4 mb-4">
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-      </div> */}
       <canvas ref={chartRef} className="w-full h-full" />
     </div>
   );

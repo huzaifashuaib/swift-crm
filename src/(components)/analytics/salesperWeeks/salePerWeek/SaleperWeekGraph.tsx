@@ -15,6 +15,8 @@ import {
 import { MatrixController, MatrixElement } from "chartjs-chart-matrix";
 import { Chart } from "react-chartjs-2";
 import { format, eachDayOfInterval, parseISO } from "date-fns";
+import { useAppSelector } from "@/redux/store";
+
 
 ChartJS.register(
   MatrixController,
@@ -64,6 +66,7 @@ const filterDataByDateRange = (
 const WeekScheduleMatrixChart: React.FC = () => {
   const [startDate, setStartDate] = useState<Date>(new Date("2024-08-1"));
   const [endDate, setEndDate] = useState<Date>(new Date("2024-08-07"));
+  const {}=useAppSelector((state)=>state.date)
 
   const dateLabels = useMemo(
     () => generateDateLabels(startDate, endDate),

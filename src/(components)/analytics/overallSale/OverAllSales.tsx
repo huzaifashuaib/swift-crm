@@ -1,7 +1,12 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 import { svgIcon } from "@/constants/svgIcon";
-import LineGraph from "./lineGraph/LineGraph";
+import dynamic from 'next/dynamic';
+// import LineGraph from "./lineGraph/LineGraph";
+const LineGraph = dynamic(() => import("./lineGraph/LineGraph"), {
+  ssr: false,
+});
 
 const OverAllSales = () => {
   const { purpleCircle, blueCircle, arrowImg} = svgIcon;

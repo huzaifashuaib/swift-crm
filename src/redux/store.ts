@@ -3,7 +3,8 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import authReducer from "@/redux/slices/authSlice"
 import userReducer from "@/redux/slices/userSlice"
 import productReducer from "@/redux/slices/productSlice"
-import orderReducer from "@/redux/slices/productSlice"
+import orderReducer from "@/redux/slices/orderSlice"
+import daterRangeReducer from "@/redux/slices/dateRangeSlice"
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     user:userReducer,
     product:productReducer,
     order:orderReducer,
+    date:daterRangeReducer,
   },
 });
 

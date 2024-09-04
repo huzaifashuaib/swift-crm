@@ -9,12 +9,25 @@ import toast from "react-hot-toast";
 const useOrderInfo = () => {
   const cart = useAppSelector((state) => state.product.cart);
   const router=useRouter()
+
   const totalBill = cart.reduce((acc, currentValue) => {
     const quantity = currentValue.quantity;
     const price = currentValue.price;
     const totalPrice = acc + quantity * price;
     return totalPrice;
   }, 0);
+
+  const totalProfit = cart.reduce((acc, currentValue) => {
+    const price = currentValue.price;
+    const purchasePrice = currentValue.purchasePrice;
+    const totalProfit = acc+(price - purchasePrice)
+    return totalProfit;
+  }, 0);
+
+console.log(cart)
+  console.log(totalBill)
+  console.log(totalProfit)
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -36,13 +49,24 @@ const useOrderInfo = () => {
     }));
   };
 
+  const getDate = () => {
+    const date = new Date();
+    const isoDate = date.toISOString().split('T')[0];
+    return isoDate
+  };
+  
   const handleSubmit = async () => {
+
+    const date=getDate()
     const orderDetail = {
       ...formData,
       products:[...cart],
-      totalBill
+      totalBill,
+      date,
+      totalProfit
     };
     try {
+      console.log(orderDetail)
       setLoading(true);
       const resultAction = await dispatch(addOrder(orderDetail));
       setLoading(false);

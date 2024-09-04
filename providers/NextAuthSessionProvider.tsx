@@ -9,6 +9,7 @@ type NextAuthSessionProviderProps = {
 const NextAuthSessionProvider = ({
   children,
 }: NextAuthSessionProviderProps) => {
+  
   return <SessionProvider>{children}</SessionProvider>;
 };
 
