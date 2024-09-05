@@ -57,6 +57,9 @@ import salePerCountry from "../../public/assets/analystics-svg/GraphperCountry.p
 import customerSalePic from "../../public/assets/analystics-svg/customer-pic.svg";
 import pdf from "../../public/assets/document-svg/pdf.svg";
 import docCustomerIcon from "../../public/assets/document-svg/icon.svg";
+import downArrow from "../../public/assets/dashboard-svg/downArrow.svg";
+import expenseBtn from "../../public/assets/dashboard-svg/buttonExpense.svg";
+import customerBtn from "../../public/assets/dashboard-svg/buttonCustomer.svg";
 
 export const svgIcon = {
   dashboard,
@@ -118,4 +121,7 @@ export const svgIcon = {
   customerSalePic,
   pdf,
   docCustomerIcon,
+  downArrow,
+  expenseBtn,
+  customerBtn
 };

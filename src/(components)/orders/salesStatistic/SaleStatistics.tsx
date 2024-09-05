@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SaleCard from "./SaleCard";
 import { svgIcon } from "@/constants/svgIcon";
+import LineGraph from "./lineGraph/LineGraph";
 
 const SalesStatistics = () => {
   const { revenue, sales, views, orderGraph } = svgIcon;
@@ -37,7 +38,7 @@ const SalesStatistics = () => {
       </div>
 
       <div className="mt-3">
-        <Image src={orderGraph} alt="" />
+        <LineGraph />
       </div>
     </div>
   );

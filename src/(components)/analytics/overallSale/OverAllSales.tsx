@@ -3,13 +3,15 @@ import Image from "next/image";
 import React from "react";
 import { svgIcon } from "@/constants/svgIcon";
 import dynamic from 'next/dynamic';
-// import LineGraph from "./lineGraph/LineGraph";
+import useOverAllSale from "./useOverAllSale";
+
 const LineGraph = dynamic(() => import("./lineGraph/LineGraph"), {
   ssr: false,
 });
 
 const OverAllSales = () => {
   const { purpleCircle, blueCircle, arrowImg} = svgIcon;
+  const {totalExpense}=useOverAllSale()
   return (
     <div className="bg-[#FFFFFF] px-4 pt-6 pb-[51px] border-custom border-custom-border-color rounded-[10.5px] h-full flex flex-col">
       <div className="cityOrderStat">
@@ -18,7 +20,7 @@ const OverAllSales = () => {
         </h1>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="sales">$ 58,986.00</div>
+            <div className="sales">$ {totalExpense}.00</div>
             <div className="profit">
               <div className="flex items-center justify-center gap-[1px] bg-success rounded-[15.75px] py-[0.75px] px-[4px]">
                 <div>

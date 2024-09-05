@@ -23,41 +23,41 @@ const useLineGraph = () => {
       return labels.reverse();
     };
   
-    const getMonthlyProfit = () => {
-      if (!Array.isArray(orderData)) {
-        return [];
-      }
+    // const getMonthlyProfit = () => {
+    //   if (!Array.isArray(orderData)) {
+    //     return [];
+    //   }
   
-      const totalBillProfitDateArray = orderData.map((order) => ({
-        profit: order.totalProfit || 0,
-        date: order.date,
-      }));
+    //   const totalBillProfitDateArray = orderData.map((order) => ({
+    //     profit: order.totalProfit || 0,
+    //     date: order.date,
+    //   }));
   
-      const profit: number[] = [];
+    //   const profit: number[] = [];
   
-      for (let i = 0; i <= month; i++) {
-        const monthLabel = format(subMonths(new Date(), i), "MMM");
-        const totalProfitForMonth = totalBillProfitDateArray
-          .filter((data) => {
-            if (!data.date) return false;
-            const dataMonth = format(new Date(data.date), "MMM");
-            return monthLabel === dataMonth;
-          })
-          .reduce((acc, curr) => acc + curr.profit, 0);
+    //   for (let i = 0; i <= month; i++) {
+    //     const monthLabel = format(subMonths(new Date(), i), "MMM");
+    //     const totalProfitForMonth = totalBillProfitDateArray
+    //       .filter((data) => {
+    //         if (!data.date) return false;
+    //         const dataMonth = format(new Date(data.date), "MMM");
+    //         return monthLabel === dataMonth;
+    //       })
+    //       .reduce((acc, curr) => acc + curr.profit, 0);
   
-        profit.push(totalProfitForMonth);
-      }
+    //     profit.push(totalProfitForMonth);
+    //   }
   
-      return profit.reverse();
-    };
+    //   return profit.reverse();
+    // };
   
-    useEffect(() => {
-      if (Array.isArray(order)) {
-        setOrderData(order);
-      } else {
-        setOrderData([]);
-      }
-    }, [order]);
+    // useEffect(() => {
+    //   if (Array.isArray(order)) {
+    //     setOrderData(order);
+    //   } else {
+    //     setOrderData([]);
+    //   }
+    // }, [order]);
   
     useEffect(() => {
       const canvas = chartRef.current;
@@ -77,15 +77,15 @@ const useLineGraph = () => {
               datasets: [
                 {
                   label: "",
-                  data: getMonthlyProfit(),
+                  data: [22,145,122,356,765,888,129,321,12],
                   fill: true,
                   backgroundColor: "transparent",
-                  borderColor: "rgba(98, 145, 44, 1)",
+                  borderColor: "rgba(65, 165, 255, 1)",
                   borderWidth: 2,
                   tension: 0,
                   borderDash: [],
-                  pointBackgroundColor: "rgba(98, 145, 44, 1)",
-                  pointBorderColor: "rgba(98, 145, 44, 1)",
+                  pointBackgroundColor: "rgba(65, 165, 255, 1)",
+                  pointBorderColor: "rgba(65, 165, 255, 1)",
                   pointRadius: 1,
                   pointHoverRadius: 5,
                   spanGaps: true,

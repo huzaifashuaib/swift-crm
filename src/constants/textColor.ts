@@ -11,5 +11,7 @@ export const COLORS={
   success:'#E1F4CB',
   tableHeadColor:'#EFE6FF',
   orderSpanColor:'#ADB5BD',
-  themeLight:"#F8F9FA"
+  themeLight:"#F8F9FA",
+  dangerBg:"#FFE3E6",
+  danger:"#ED4D5C"
 }

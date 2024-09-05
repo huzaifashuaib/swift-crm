@@ -1,9 +1,12 @@
+"use client"
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
 import BarChart from "./BarChart/BarChart";
+import useMonthlyIncome from "./useMonthlyIncome";
 
 const MonthlyIncome = () => {
   const { buttonImg, arrowImg } = svgIcon;
+  const {monthlyIncome}=useMonthlyIncome()
 
   return (
     <div className="bg-[#FFFFFF] py-6 px-4 rounded-[10.5px] border-custom border-custom-border-color h-full">
@@ -18,7 +21,7 @@ const MonthlyIncome = () => {
           <div className="income flex justify-between items-center mb-[17px]">
             <div className="currentIncome">
               <h1 className="text-cardMainHead text-2xl font-bold">
-                $ 6,567.00
+                $ {monthlyIncome}.00
               </h1>
             </div>
             <div className="profit">

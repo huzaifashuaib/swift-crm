@@ -23,21 +23,21 @@ const useLineGraph = () => {
       return labels.reverse();
     };
   
-    const getMonthlyProfit = () => {
+    const getMonthly = () => {
       if (!Array.isArray(orderData)) {
         return [];
       }
   
-      const totalBillProfitDateArray = orderData.map((order) => ({
-        profit: order.totalProfit || 0,
+      const totalBillExpenseDateArray = orderData.map((order) => ({
+        profit: order.totalBill || 0,
         date: order.date,
       }));
   
-      const profit: number[] = [];
+      const expense: number[] = [];
   
       for (let i = 0; i <= month; i++) {
         const monthLabel = format(subMonths(new Date(), i), "MMM");
-        const totalProfitForMonth = totalBillProfitDateArray
+        const totalProfitForMonth = totalBillExpenseDateArray
           .filter((data) => {
             if (!data.date) return false;
             const dataMonth = format(new Date(data.date), "MMM");
@@ -45,10 +45,10 @@ const useLineGraph = () => {
           })
           .reduce((acc, curr) => acc + curr.profit, 0);
   
-        profit.push(totalProfitForMonth);
+        expense.push(totalProfitForMonth);
       }
   
-      return profit.reverse();
+      return expense.reverse();
     };
   
     useEffect(() => {
@@ -77,15 +77,15 @@ const useLineGraph = () => {
               datasets: [
                 {
                   label: "",
-                  data: getMonthlyProfit(),
+                  data: getMonthly(),
                   fill: true,
                   backgroundColor: "transparent",
-                  borderColor: "rgba(98, 145, 44, 1)",
+                  borderColor: "rgba(237, 77, 92, 1)",
                   borderWidth: 2,
                   tension: 0,
                   borderDash: [],
-                  pointBackgroundColor: "rgba(98, 145, 44, 1)",
-                  pointBorderColor: "rgba(98, 145, 44, 1)",
+                  pointBackgroundColor: "rgba(237, 77, 92, 1)",
+                  pointBorderColor: "rgba(237, 77, 92, 1)",
                   pointRadius: 1,
                   pointHoverRadius: 5,
                   spanGaps: true,

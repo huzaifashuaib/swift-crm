@@ -1,21 +1,20 @@
 "use client"
 import { useAppSelector } from "@/redux/store"
-import { ORDER_FORMDATA } from "@/types/types"
 
-const useSummaryCard = () => {
+const useOverAllSale = () => {
     const orderData=useAppSelector((state)=>state.order.order)
-    const totalProfit = Array.isArray(orderData)
+    const totalExpense = Array.isArray(orderData)
     ? orderData
         .map((order) => ({
-          totalProfit: order.totalProfit,
+          totalProfit: order.totalBill,
         }))
         .reduce((acc, currentValue) => acc + (currentValue.totalProfit || 0), 0)
     : 0;
       
    
   return {
-    totalProfit
+    totalExpense
   }
 }
 
-export default useSummaryCard
+export default useOverAllSale;

@@ -31,7 +31,54 @@ export default function LineGraph() {
     return labels;
   };
 
-  
+  const getPast7DaysSalesData = () => {
+    const today = startOfToday();
+    const start = subDays(today, 6);
+
+    const currentWeekSales = orderData.filter((order) => {
+      if (!order.date) return false;
+      const orderDate = new Date(order.date).setHours(0, 0, 0, 0); // Normalize to midnight
+      return orderDate >= start.getTime() && orderDate <= today.getTime();
+    });
+
+    const dataValues = eachDayOfInterval({ start, end: today }).map((day) => {
+      const dayTotal = currentWeekSales
+        .filter((order) => {
+          if (!order.date) return false;
+          const orderDate = new Date(order.date).setHours(0, 0, 0, 0);
+          return orderDate === day.getTime();
+        })
+        .reduce((acc, curr) => acc + (curr.totalBill || 0), 0);
+      return dayTotal;
+    });
+
+    return dataValues;
+  };
+
+  const getPrevious7DaysSalesData = () => {
+    const today = startOfToday();
+    const end = subDays(today, 1);
+    const start = subDays(end, 6);
+    const previousWeekSales = orderData.filter((order) => {
+      if (!order.date) return false;
+      const orderDate = new Date(order.date).setHours(0, 0, 0, 0);
+      return orderDate >= start.getTime() && orderDate <= end.getTime();
+    });
+
+    const dataValues = eachDayOfInterval({ start, end }).map((day) => {
+      const dayTotal = previousWeekSales
+        .filter((order) => {
+          if (!order.date) return false;
+          const orderDate = new Date(order.date).setHours(0, 0, 0, 0);
+          return orderDate === day.getTime();
+        })
+        .reduce((acc, curr) => acc + (curr.totalBill || 0), 0);
+      return dayTotal;
+    });
+
+    return dataValues;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
