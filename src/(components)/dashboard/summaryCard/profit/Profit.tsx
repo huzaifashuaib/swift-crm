@@ -11,18 +11,18 @@ const Profit = () => {
     const {totalProfit}=useProfit()
   return (
     <>
-      <div className="bg-[#FFFFFF] py-[21.25px] px-4 border-custom border-custom-border-color rounded-[10.5px] ">
-        <div className="logo mb-3">
+      <div className="bg-[#FFFFFF] py-[19.63px] px-[13.09px] md:py-[21.25px] md:px-4 border-custom border-custom-border-color rounded-[10.5px] ">
+        <div className="logo mb-[9.82px] md:mb-3 w-[23.32px] md:w-0">
           <Image src={profitBtn} alt="" />
         </div>
         <div className="title">
-          <h1 className="text-cardSub text-[15px] font-semibold">
+          <h1 className="text-cardSub text-[12.27px] md:text-[15px] font-semibold">
             Total Profit
           </h1>
         </div>
-        <div className="incomeProfit flex justify-between items-center mb-3">
+        <div className="incomeProfit flex justify-between items-center mb-[9.82px] md:mb-3">
           <div className="income">
-            <h1 className="text-cardMainHead text-2xl font-bold">
+            <h1 className="text-cardMainHead text-xl md:text-2xl font-bold">
               $ {totalProfit}
             </h1>
           </div>

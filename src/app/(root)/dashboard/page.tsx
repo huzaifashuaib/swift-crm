@@ -11,14 +11,14 @@ import Customer from "@/(components)/dashboard/summaryCard/customers/Customer";
 export default function DashBoard() {
   return (
     <div className="">
-      <div className="mb-[59px]">
+      <div className="mb-[20px] md:mb-[59px]">
         <Header />
       </div>
 
-      <div className="w-full flex">
-        <div className="w-[72%]">
-          <div className="MonthlyIncome flex gap-[21px] mb-[21px]">
-            <div className="w-[160px]">
+      <div className="w-full md:flex gap-[21px] h-auto">
+        <div className="w-full md:w-[72%]  flex flex-col h-full">
+          <div className="MonthlyIncome md:flex gap-[21px] mb-[21px]">
+            <div className="w-full md:w-[160px] mb-5 md:mb-0">
               <TargetOrder />
             </div>
             <div>
@@ -26,26 +26,27 @@ export default function DashBoard() {
             </div>
           </div>
 
-          <div className="graphSection flex gap-3 justify-between mb-[21.62px]">
-            <Profit/>
+          <div className="graphSection flex gap-[17.18px] md:gap-3 justify-between mb-[21.62px] overflow-y-auto">
+            <Profit />
             <Expense />
             <Customer />
           </div>
-
-          <div className="customerSection">
-            <CustomerStatus />
-          </div>
         </div>
 
-        <div className="w-[28%] ml-[21px]">
-          <div>
-            <BestSellingProduct />
-          </div>
-          <div className="mt-[22px]">
-            <div>
-            <CityOrderStatistics />
-            </div>
-          </div>
+        <div className="w-full md:w-[28%] mb-[21.62px]">
+          <BestSellingProduct />
+        </div>
+      </div>
+
+      <div className="w-full md:flex h-auto">
+        <div className="w-full md:w-[72%]">
+            <CustomerStatus />
+        </div>
+        <div className="w-full md:w-[28%] md:ml-[21px]">
+          {/* <div className="mt-[22px]"> */}
+          
+              <CityOrderStatistics />
+          
         </div>
       </div>
     </div>

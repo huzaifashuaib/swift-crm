@@ -6,11 +6,11 @@ const Footer = () => {
   const { logo, fb, insta, twitter } = svgIcon;
   return (
     <div className="mx-[70.5px] py-[17px]">
-      <div className="flex justify-between gap-y-[10px] mt-[17px]">
+      <div className="md:flex justify-between gap-y-[10px] mt-[17px]">
         <div className="logo">
           <Image src={logo} alt="" />
         </div>
-        <div className="links flex  gap-6">
+        <div className="links md:flex  gap-6">
           <div>
             <Link href={""} className="text-cardMainHead text-base font-normal">Dashboard</Link>
           </div>
@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center gap-y-[5px] mt-[21px]">
+      {/* <div className="flex justify-between items-center gap-y-[5px] mt-[21px]">
         <div>
           <p className="text-cardMainHead text-base font-normal">Crafting Connections, One Customer at a Time.</p>
         </div>
@@ -43,11 +43,11 @@ const Footer = () => {
             <Image src={twitter} alt="" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="border-b border-gray-200 mb-8 mt-4"></div>
 
-      <div className="flex justify-between ">
+      <div className="md:flex justify-between ">
         <div>
           <div>
             <Link href={""} className="text-cardMainHead text-base font-normal">Privacy Policy</Link>

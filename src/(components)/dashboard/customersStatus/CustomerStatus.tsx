@@ -5,8 +5,8 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 const CustomerStatus = () => {
   const { customerImg } = svgIcon;
   return (
-    <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
-      <div className="flex justify-between items-center">
+    <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px] h-full">
+      <div className="md:flex justify-between items-center">
         <div>
           <h1 className="text-cardMainHead text-base font-semibold">
             New Customers
