@@ -54,8 +54,8 @@ const OrderTable = () => {
                 </td>
               </tr>
             ) : orders?.length !== 0 ? (
-              orders?.map((order: ORDER_FORMDATA,) => (
-                <tr key={order.id} className={`bg-white hover:bg-gray-50 ${order.status=="completed" ? "line-through" :""} `}>
+              orders?.map((order: ORDER_FORMDATA,index) => (
+                <tr key={index} className={`bg-white hover:bg-gray-50 ${order.status=="completed" ? "line-through" :""} `}>
                   
                   <td className="w-4 p-4">
                     <div className="flex items-center gap-[6.64px] my-[6.64px]">
