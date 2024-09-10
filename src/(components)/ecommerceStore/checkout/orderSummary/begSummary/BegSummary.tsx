@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import userOrderSummary from "../userOrderSummary";
+import useOrderSummary from "../useOrderSummary";
 import Image from "next/image";
 
 const BegSummary = () => {
-  const { countProducts, cartProduct } = userOrderSummary();
+  const { countProducts, cartProduct } = useOrderSummary();
 
   return (
     <div>
