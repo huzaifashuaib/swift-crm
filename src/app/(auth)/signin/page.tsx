@@ -25,7 +25,7 @@ const LoginForm = () => {
         </p>
 
         <p className="text-center my-2">
-          Don't have an Account?{" "}
+          Don&apos;t have an Account?{' '}
           <Link
             href="/signup"
             className="text-blue-500 underline hover:text-blue-700 transition-colors relative group"
