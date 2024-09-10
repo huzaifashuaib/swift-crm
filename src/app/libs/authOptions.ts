@@ -77,11 +77,13 @@
 //   debug: process.env.NODE_ENV !== "production",
 // };
 
+
+
 import { AuthOptions } from "next-auth";
-import Credentials from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import prismadb from "@/app/libs/prismadb";
-import bcrypt from "bcryptjs";  // Updated to bcryptjs
+import bcrypt from "bcryptjs";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -89,36 +91,29 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    Credentials({
+    CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: {
-          label: "Email",
-          type: "email",
-          placeholder: "Enter Your Email",
-        },
+        email: { label: "Email", type: "email", placeholder: "Enter Your Email" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Missing Credentials");
+          throw new Error("Please provide both email and password.");
         }
 
-        const user = await prismadb.user.findFirst({
+        const user = await prismadb.user.findUnique({
           where: { email: credentials.email },
         });
 
-        if (!user || !user.hashedPassword) {
-          throw new Error("Invalid credentials");
+        if (!user) {
+          throw new Error("User not found.");
         }
 
-        const correctPassword = await bcrypt.compare(
-          credentials.password,
-          user.hashedPassword
-        );
+        const isPasswordValid = await bcrypt.compare(credentials.password, user.hashedPassword);
 
-        if (!correctPassword) {
-          throw new Error("Invalid credentials");
+        if (!isPasswordValid) {
+          throw new Error("Invalid email or password.");
         }
 
         return user;
@@ -137,8 +132,8 @@ export const authOptions: AuthOptions = {
         });
 
         if (user) {
-          session.user.name = user.userName;
-          session.user.image = user.imgUrl;
+          session.user.name = user.userName ?? "User";
+          session.user.image = user.imgUrl ?? "";
         }
       }
 

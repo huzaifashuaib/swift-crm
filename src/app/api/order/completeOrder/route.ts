@@ -54,7 +54,6 @@ export async function PUT(req: Request) {
 
     return new NextResponse("Order Completed Successfully", { status: 200 });
   } catch (error: any) {
-    // Improved error logging
     console.error("ORDER OPERATION ERROR:", error.message || error);
     return new NextResponse("Error processing request", { status: 500 });
   }
