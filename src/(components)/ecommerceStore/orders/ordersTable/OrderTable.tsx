@@ -54,8 +54,8 @@ const OrderTable = () => {
                 </td>
               </tr>
             ) : orders?.length !== 0 ? (
-              orders?.map((order: ORDER_FORMDATA,index) => (
-                <tr key={index} className={`bg-white hover:bg-gray-50 ${order.status=="completed" ? "line-through" :""} `}>
+              orders?.map((order: ORDER_FORMDATA,) => (
+                <tr key={order.id} className={`bg-white hover:bg-gray-50 ${order.status=="completed" ? "line-through" :""} `}>
                   
                   <td className="w-4 p-4">
                     <div className="flex items-center gap-[6.64px] my-[6.64px]">
@@ -79,8 +79,8 @@ const OrderTable = () => {
                     </div>
                   </td>
                   <td>
-                    {order.products?.map((product: PRODUCT) => (
-                      <div className="my-[6.64px] text-textMain font-medium text-xs">
+                    {order.products?.map((product: PRODUCT,) => (
+                      <div key={product.id} className="my-[6.64px] text-textMain font-medium text-xs">
                         {product.name}
                       </div>
                     ))}
