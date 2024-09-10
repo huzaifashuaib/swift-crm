@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/libs/authOptions";
-import axios from "axios";
+
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
