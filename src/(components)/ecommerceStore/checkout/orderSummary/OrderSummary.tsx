@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
 import BegSummary from "./begSummary/BegSummary";
-import userOrderSummary from "./userOrderSummary";
+import useOrderSummary from "./useOrderSummary";
 
 const OrderSummary = () => {
-    const {totalBill}=userOrderSummary()
+    const {totalBill}=useOrderSummary()
 
   return (
     <div>

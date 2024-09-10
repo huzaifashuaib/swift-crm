@@ -1,9 +1,9 @@
 "use client"
 
 import { useAppSelector } from '@/redux/store';
-import React from 'react'
 
-const userOrderSummary = () => {
+
+const useOrderSummary = () => {
     const cartProduct = useAppSelector((state) => state.product.cart);
     const totalBill = cartProduct.reduce((acc, currentValue) => {
         const quantity = currentValue.quantity;
@@ -20,4 +20,4 @@ const userOrderSummary = () => {
   }
 }
 
-export default userOrderSummary
+export default useOrderSummary
