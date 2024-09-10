@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
@@ -31,14 +32,14 @@ const NavLink = () => {
 
   return (
     <>
-      <div className="gernal-links flex flex-col gap-4">
+      <div className="gernal-links flex flex-col gap-2 lg:gap-4">
         <div
           className={`px-4 py-2 ${
             isActive("/") && "bg-activeLink rounded-[4px]"
           } hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor`}
         >
           <Link href={"/"} className={`flex items-center gap-2`}>
-            <Image src={isActive("/") ? dashboardPurple : dashboard} alt="" />
+            <Image src={isActive("/") ? dashboardPurple : dashboard} alt="icon" />
             <h2 className={`text-base ${isActive("/") && "text-btnColor"}`}>
               Dashboard
             </h2>
@@ -52,7 +53,7 @@ const NavLink = () => {
           onClick={openDropDown}
         >
           <Link href={""} className={`flex items-center gap-2`}>
-            <Image src={isOpen ? orderPurple : order} alt="" />
+            <Image src={isOpen ? orderPurple : order} alt="icon" />
             <h2
               className={`text-base ${
                 isOpen && "text-btnColor"
@@ -133,13 +134,13 @@ const NavLink = () => {
 
         <div
           className={`px-4 py-2 ${
-            isActive("/notify") && "bg-activeLink rounded-[4px]"
+            isActive("/") && "bg-activeLink rounded-[4px]"
           }`}
         >
-          <Link href={""} className={`flex items-center gap-2 `}>
-            <Image src={notification} alt="" />
+          <Link href={"/"} className={`flex items-center gap-2 `}>
+            <Image src={notification} alt="icon" />
             <h2
-              className={`text-base ${isActive("/notify") && "text-btnColor"}`}
+              className={`text-base ${isActive("/") && "text-btnColor"}`}
             >
               Notifications
             </h2>
@@ -153,7 +154,7 @@ const NavLink = () => {
           <Link href={"/customers"} className={`flex items-center gap-2`}>
             <Image
               src={isActive("/customers") ? customerPurple : customer}
-              alt=""
+              alt="icon"
             />
             <h2
               className={`text-base ${
@@ -171,7 +172,7 @@ const NavLink = () => {
           } hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor`}
         >
           <Link href={"/orders"} className={`flex items-center gap-2 `}>
-            <Image src={isActive("/orders") ? orderPurple : order} alt="" />
+            <Image src={isActive("/orders") ? orderPurple : order} alt="icon" />
             <h2
               className={`text-base ${isActive("/orders") && "text-btnColor"}`}
             >
@@ -188,7 +189,7 @@ const NavLink = () => {
           <Link href={"/analytics"} className={`flex items-center gap-2`}>
             <Image
               src={isActive("/analytics") ? analystPurple : analyst}
-              alt=""
+              alt="icon"
             />
             <h2
               className={`text-base ${
@@ -209,7 +210,7 @@ const NavLink = () => {
             href={"/documents"}
             className={`flex items-center gap-2 ${isActive("/documents")}`}
           >
-            <Image src={isActive("/documents") ? docPurple : doc} alt="" />
+            <Image src={isActive("/documents") ? docPurple : doc} alt="icon" />
             <h2
               className={`text-base ${
                 isActive("/documents") && "text-btnColor"
@@ -221,12 +222,12 @@ const NavLink = () => {
         </div>
       </div>
 
-      <div className="support-links">
+      <div className="support-links hidden lg:block">
         <p className=" text-textMain font-bold text-xs">SUPPORT</p>
         <div className="gernal-links flex flex-col gap-4">
           <div className="mx-4 my-2">
             <li className={`flex items-center gap-2`}>
-              <Image src={help} alt="" />
+              <Image src={help} alt="icon" />
               <h2 className=" text-base">Help</h2>
             </li>
           </div>
@@ -242,7 +243,7 @@ const NavLink = () => {
                 "/setting/myProfile"
               )}`}
             >
-              <Image src={setting} alt="" />
+              <Image src={setting} alt="icon" />
               <h2
                 className={`text-base ${
                   isActive("/setting/myProfile") && "text-btnColor"
@@ -256,12 +257,12 @@ const NavLink = () => {
       </div>
 
       <div className="accountstatus">
-        <div className="px-4 py-2 hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor">
+        <div className="mt-2 lg:mt-0 px-4 py-2 hover:bg-activeLink hover:rounded-[4px] hover:text-btnColor">
           <li
             className="flex items-center gap-2 cursor-pointer "
             onClick={() => signOut()}
           >
-            <Image src={logout} alt="" />
+            <Image src={logout} alt="icon" />
             <h2 className=" text-base">Log Out</h2>
           </li>
         </div>

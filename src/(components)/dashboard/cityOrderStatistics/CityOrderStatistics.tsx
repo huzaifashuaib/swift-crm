@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import dynamic from "next/dynamic";
 
@@ -7,7 +8,7 @@ const Map = dynamic(() => import("./Map/Map"), {
 
 export default function CityOrderStatistics() {
   return (
-    <div className="bg-[#FFFFFF] pt-6 px-4 py-6 border-custom border-custom-border-color rounded-[10.5px]">
+    <div className="bg-white pt-6 px-4 py-6 border-custom border-custom-border-color rounded-[10.5px]">
       <div className="cityOrderStat">
         <h1 className="text-cardMainHead text-base font-semibold">
           City Order Statistics

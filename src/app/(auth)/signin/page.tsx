@@ -9,7 +9,7 @@ const LoginForm = () => {
     <div className=" bg-backgroundImg bg-no-repeat bg-cover flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex justify-center items-center my-5">
-          <Image src={logo} alt="" width={140} />
+          <Image src={logo} alt="logo" width={140} />
         </div>
         <SigninForm />
         <hr className="my-4" />

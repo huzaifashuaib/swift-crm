@@ -5,7 +5,7 @@ import { svgIcon } from "@/constants/svgIcon";
 const BestSellingProduct = () => {
   const { cupImg, bowelImg, glassImg, plateImg } = svgIcon;
   return (
-    <div className="bg-[#FFFFFF] pt-6 px-4 pb-[58.5px] border-custom border-custom-border-color rounded-[10.5px] h-full">
+    <div className="bg-white pt-6 px-4 pb-[58.5px] border-custom border-custom-border-color rounded-[10.5px] h-full">
       <div className="sellingProduct">
         <h1 className="text-cardMainHead text-base font-semibold">
           Best Selling Products

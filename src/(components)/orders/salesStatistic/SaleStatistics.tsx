@@ -6,14 +6,14 @@ import LineGraph from "./lineGraph/LineGraph";
 const SalesStatistics = () => {
   const { revenue, sales, views, orderGraph } = svgIcon;
   return (
-    <div className="py-6 px-3 bg-white border-custom border-custom-border-color rounded-[10.5px]">
+    <div className="py-5 md:py-6 px-[13.28px] md:px-3 bg-white border-custom border-custom-border-color rounded-[10.5px]">
       <div>
-        <h1 className="text-cardMainHead text-base font-semibold">
+        <h1 className="text-cardMainHead text-[13.28px] md:text-base font-semibold">
           Sales Statistic
         </h1>
       </div>
       <div className="border-b border-gray-200 my-3"></div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 overflow-auto">
         <SaleCard
           icon={revenue}
           text={"Total Revenue"}

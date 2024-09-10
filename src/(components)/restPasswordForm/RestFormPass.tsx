@@ -18,10 +18,11 @@ const RestFormPass = ({token}:{token:string}) => {
     <div>
       <Input
         type="password"
+        name=''
         disable={false}
         value={newPassword}
         label="New Password"
-        onchange={(e) => setnewPassword(e.target.value)}
+        onChange={(e) => setnewPassword(e.target.value)}
         placeholder="Enter Password"
       />
     </div>
@@ -29,10 +30,11 @@ const RestFormPass = ({token}:{token:string}) => {
     <div>
       <Input
         type="password"
+        name=''
         disable={false}
         value={enterPassword}
         label="Re-Enter Password"
-        onchange={(e) => setReEnterPassword(e.target.value)}
+        onChange={(e) => setReEnterPassword(e.target.value)}
         placeholder="Re-Enter Password"
       />
     </div>

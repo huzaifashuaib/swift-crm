@@ -19,7 +19,7 @@ const useOrderInfo = () => {
 
   const totalProfit = cart.reduce((acc, currentValue) => {
     const price = currentValue.price;
-    const purchasePrice = currentValue.purchasePrice;
+    const purchasePrice = currentValue.purchasePrice || 0;
     const totalProfit = acc+(price - purchasePrice)
     return totalProfit;
   }, 0);

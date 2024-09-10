@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="mx-[70.5px] py-[17px]">
       <div className="md:flex justify-between gap-y-[10px] mt-[17px]">
         <div className="logo">
-          <Image src={logo} alt="" />
+          <Image src={logo} alt="logo" />
         </div>
         <div className="links md:flex  gap-6">
           <div>

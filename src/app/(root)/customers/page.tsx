@@ -9,15 +9,15 @@ const Customers = () => {
   const { totalMem, newMem, nonMem, member } = svgIcon;
   return (
     <div>
-      <Header pageName="Customer" />
+      <Header pageName="Customers" />
       <div>
-        <div className="grid grid-cols-4 gap-6 mt-[62px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-[19.92px] md:gap-6 mt-[28.87px] md:mt-[62px]">
           <CustomerCard
             svgIcon={totalMem}
             text={"Total Customers"}
             total="10,678"
             color="gradient-to-t from-cardTopColor to-cardBottomColor"
-            textClr="cardBgColor"
+            bgClr="cardBgColor"
             border={false}
           />
           <CustomerCard
@@ -45,18 +45,13 @@ const Customers = () => {
         <CustomerUsage />
       </div>
 
-      <div className="px-4 py-5 bg-white rounded-[10.5px] border-custom border-custom-border-color mt-[23px]">
+      <div className="px-[13.28px] md:px-4 py-5 bg-white rounded-[10.5px] border-custom border-custom-border-color mt-[23px]">
         <CustomerDemographic />
       </div>
-
 
       <div className="mt-[23px]">
         <CustomerStatusTable />
       </div>
-
-
-
-
     </div>
   );
 };

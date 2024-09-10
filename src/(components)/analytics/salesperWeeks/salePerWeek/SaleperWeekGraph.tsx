@@ -17,7 +17,6 @@ import { Chart } from "react-chartjs-2";
 import { format, eachDayOfInterval, parseISO } from "date-fns";
 import { useAppSelector } from "@/redux/store";
 
-
 ChartJS.register(
   MatrixController,
   MatrixElement,
@@ -45,7 +44,6 @@ const generateTimeLabels = () => {
   return ["12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 };
 
-
 const filterDataByDateRange = (
   data: MatrixDataPoint[],
   startDate: Date,
@@ -66,7 +64,7 @@ const filterDataByDateRange = (
 const WeekScheduleMatrixChart: React.FC = () => {
   const [startDate, setStartDate] = useState<Date>(new Date("2024-08-1"));
   const [endDate, setEndDate] = useState<Date>(new Date("2024-08-07"));
-  const {}=useAppSelector((state)=>state.date)
+  const {} = useAppSelector((state) => state.date);
 
   const dateLabels = useMemo(
     () => generateDateLabels(startDate, endDate),
@@ -209,13 +207,13 @@ const WeekScheduleMatrixChart: React.FC = () => {
             }
             const formattedDate = format(parseISO(dataPoint.x), "d MMMM");
             const value = dataPoint.v;
-          
-            return value ? `${formattedDate}: Sales ${value}` : `${formattedDate}: Free`;
+
+            return value
+              ? `${formattedDate}: Sales ${value}`
+              : `${formattedDate}: Free`;
           },
         },
       },
-      
-      
     },
   };
 
@@ -237,24 +235,6 @@ const WeekScheduleMatrixChart: React.FC = () => {
 
   return (
     <div className="h-full w-full">
-      {/* <div className="mb-4">
-        <label>
-          Start Date:
-          <input
-            type="date"
-            value={format(startDate, "yyyy-MM-dd")}
-            onChange={handleStartDateChange}
-          />
-        </label>
-        <label className="ml-4">
-          End Date:
-          <input
-            type="date"
-            value={format(endDate, "yyyy-MM-dd")}
-            onChange={handleEndDateChange}
-          />
-        </label>
-      </div> */}
       <div className="relative w-full h-full">
         <Chart type="matrix" data={data} options={options} />
       </div>

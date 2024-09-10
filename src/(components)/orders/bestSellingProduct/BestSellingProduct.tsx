@@ -1,10 +1,11 @@
+import { productData } from "@/constants/productTableData";
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
 
 const BestSellingProduct = () => {
   const { bowelImg } = svgIcon;
   return (
-    <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
+    <div className="bg-white py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
       <div>
         <h1 className="text-cardMainHead text-base font-semibold">
           Best Selling Products
@@ -17,22 +18,22 @@ const BestSellingProduct = () => {
             <thead className=" text-gray-700 uppercas bg-tableHeadColor ">
               <tr className="rounded-[115px]">
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead m-2">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[156.04px] text-cardMainHead m-2">
                     Product Name
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead m-2">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[124.5px] text-cardMainHead m-2">
                     Total Order
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead m-2">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[88.81px] text-cardMainHead m-2">
                     Status
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead m-2">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[54.78px] text-cardMainHead m-2">
                     Price
                   </div>
                 </th>
@@ -40,73 +41,45 @@ const BestSellingProduct = () => {
             </thead>
 
             <tbody className="">
-              <tr className="bg-white">
-                <td scope="row" className="p-3">
-                  <div className="flex items-center gap-2 ">
-                    <div>
-                      <Image src={bowelImg} alt="" width={32} />
-                    </div>
-                    <div>
-                    <h2 className="text-sm font-medium text-cardHead">Ceramic Bowl</h2>
-                    <span className="text-textMain text-sm font-normal-">
-                    HomeGoods
-                    </span>
-                  </div>
-                  </div>
-                </td>
-                <td className="p-3">
-                  <div>
-                    <h2 className="text-sm font-medium text-cardMainHead">200 pcs</h2>
-                    <span className="text-textMain text-sm font-medium">
-                      31 Jul 2023
-                    </span>
-                  </div>
-                </td>
-                <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
-                    Available
-                  </span>
-                </td>
-                <td className="p-3">
-                  <span className="text-textMain text-sm font-medium">
-                    $29.00{" "}
-                  </span>
-                </td>
-              </tr>
+              {productData.map((product,index)=>(
 
-              <tr className="bg-white">
+              <tr key={index} className="bg-white">
                 <td scope="row" className="p-3">
                   <div className="flex items-center gap-2 ">
                     <div>
-                      <Image src={bowelImg} alt="" width={32} />
+                      <Image src={product.productImage} alt="img" width={32} />
                     </div>
                     <div>
-                    <h2 className="text-sm font-medium text-cardHead">Ceramic Bowl</h2>
+                    <h2 className="text-sm font-medium text-cardHead">{product.productName}</h2>
                     <span className="text-textMain text-sm font-normal-">
-                    HomeGoods
+                 {product.productSub}
                     </span>
                   </div>
                   </div>
                 </td>
                 <td className="p-3">
                   <div>
-                    <h2 className="text-sm font-medium text-cardMainHead">200 pcs</h2>
+                    <h2 className="text-sm font-medium text-cardMainHead">{product.pcs}</h2>
                     <span className="text-textMain text-sm font-medium">
-                      31 Jul 2023
+                      {product.date}
                     </span>
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
-                    Available
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr px-[8px] py-[3px]">
+                    {product.status}
                   </span>
                 </td>
                 <td className="p-3">
                   <span className="text-textMain text-sm font-medium">
-                    $29.00{" "}
+                    ${product.price}
                   </span>
                 </td>
               </tr>
+              ))
+              }
+
+             
             </tbody>
           </table>
         </div>

@@ -35,9 +35,9 @@ const DateRange: React.FC = () => {
     if (startDate && endDate) {
       return `${format(new Date(startDate), "d MMM")} - ${format(new Date(endDate), "d MMM yyyy")}`;
     } else if (startDate) {
-      return format(new Date(startDate), "d MMMM yyyy");
+      return format(new Date(startDate), "d MMM yyyy");
     } else {
-      return format(new Date(), "d MMMM yyyy");
+      return format(new Date(), "d MMM yyyy");
     }
   };
 
@@ -45,7 +45,7 @@ const DateRange: React.FC = () => {
 
   return (
     <div className="datepicker-container relative">
-      <button className="bg-btnColor py-[4.98px] px-[9.96px] rounded-[3.32px] text-white"  onClick={handleClick}>
+      <button className="bg-btnColor py-[4.98px] px-[9.96px] text-[13.28px] rounded-[3.32px] text-white"  onClick={handleClick}>
         <div className="flex items-center gap-[3.32px]">
           <div>{displayDate()}</div>
           <div>
@@ -54,7 +54,7 @@ const DateRange: React.FC = () => {
         </div>
       </button>
       {isOpen && (
-      <div className="datepicker-wrapper absolute right-0 top-[40px] z-30">
+      <div className="datepicker-wrapper absolute left-0 md:right-0 top-[40px] z-30">
         <DatePicker
           selected={startDate ? new Date(startDate) : undefined}
           onChange={(dates: [Date | null, Date | null] | null) => handleChange(dates)}
@@ -62,6 +62,7 @@ const DateRange: React.FC = () => {
           endDate={endDate ? new Date(endDate) : undefined}
           selectsRange
           inline
+          maxDate={new Date()}
         />
       </div>)}
     </div>

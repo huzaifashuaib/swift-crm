@@ -19,13 +19,13 @@ const ProtectedRootLayout = async ({ children }: ProtectedRootLayoutProps) => {
   return (
     <main>
       <div className="min-h-screen w-full bg-backgroundImg bg-no-repeat bg-bottom-left bg-cover">
-        <div className="flex ml-[43px] mr-[45px]  md:mx-[72px] mt-[22px] min-h-screen">
-          <div className=" w-full md:w-[19%] hidden md:block">
+        <div className="xl:flex xl:gap-[41px] 2xl:gap-[29px]  ml-[43px] mr-[45px] md:mx-[39px] lg:mx-[72px] mt-0 md:mt[21px] lg:mt-[22px] min-h-screen">
+          <div className=" w-full xl:w-[19%] ">
             <Nav />
           </div>
-          <div className="w-full md:w-[81%]">{children}</div>
+          <div className="w-full xl:w-[81%]">{children}</div>
         </div>
-        <footer className="bg-[#ffffff] mt-[67px]">
+        <footer className="bg-white mt-[67px]">
           <Footer />
         </footer>
       </div>

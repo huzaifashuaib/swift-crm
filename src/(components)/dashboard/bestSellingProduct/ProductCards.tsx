@@ -1,14 +1,12 @@
-import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
 import { CardType } from "@/types/types";
 
-function ProductCards({cardImg,title, subtitle, price}:CardType) {
-  
+function ProductCards({ cardImg, title, subtitle, price }: CardType) {
   return (
     <div className="flex justify-between items-center bg-cardBgColor p-2">
       <div className="productInfo flex items-center gap-2">
         <div className="productImage">
-          <Image src={cardImg} width={67} height={67} alt="" />
+          <Image src={cardImg} alt="card" priority={false} />
         </div>
         <div className="productInfo">
           <h1 className="text-sm font-semibold text-cardHead mb-2">{title}</h1>

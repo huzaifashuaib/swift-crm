@@ -1,24 +1,28 @@
 import { signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaSpinner } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
+import { FaSpinner, FaGoogle } from "react-icons/fa";
 
 const useSigninForm = () => {
   useEffect(() => {
     signOut({ redirect: false });
   }, []);
 
-  const [email, setEamil] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async () => {
     setLoading(true);
     const login = await signIn("credentials", {
-      email,
-      password,
+      email: formData.email,
+      password: formData.password,
       redirect: false,
     });
     setLoading(false);
@@ -37,19 +41,16 @@ const useSigninForm = () => {
   };
 
   return {
-    email,
-    setEamil,
-    password,
-    setPassword,
+    formData,
+    setFormData,
     loading,
-    setLoading,
     googleLoading,
-    setGoogleLoading,
     FaGoogle,
     FaSpinner,
     handleGoogleSubmit,
-    handleSubmit
-  }
+    handleSubmit,
+    handleInputChange
+  };
 };
 
 export default useSigninForm;

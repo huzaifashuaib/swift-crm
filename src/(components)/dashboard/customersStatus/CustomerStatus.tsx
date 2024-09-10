@@ -5,7 +5,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 const CustomerStatus = () => {
   const { customerImg } = svgIcon;
   return (
-    <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px] h-full">
+    <div className="bg-white py-6 px-4 border-custom border-custom-border-color rounded-[10.5px] h-full">
       <div className="md:flex justify-between items-center">
         <div>
           <h1 className="text-cardMainHead text-base font-semibold">
@@ -50,22 +50,22 @@ const CustomerStatus = () => {
             <thead className=" text-gray-700 uppercas bg-tableHeadColor rounded-[5px]">
               <tr>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[126.5px] text-cardMainHead">
                     Date
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[261px] text-cardMainHead">
                     Customer
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[107px] text-cardMainHead">
                     Status
                   </div>
                 </th>
                 <th scope="col">
-                  <div className="text-sm font-semibold line leading-5 p-2 text-cardMainHead">
+                  <div className="text-sm font-semibold line leading-5 p-2 w-[126.5px] text-cardMainHead">
                     Total
                   </div>
                 </th>
@@ -90,7 +90,7 @@ const CustomerStatus = () => {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr px-[8px] py-[3px]">
                     Success
                   </span>
                 </td>
@@ -119,7 +119,7 @@ const CustomerStatus = () => {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr px-[8px] py-[3px]">
                     Success
                   </span>
                 </td>
@@ -148,7 +148,7 @@ const CustomerStatus = () => {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr] px-[8px] py-[3px]">
                     Success
                   </span>
                 </td>
@@ -177,7 +177,7 @@ const CustomerStatus = () => {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr px-[8px] py-[3px]">
                     Success
                   </span>
                 </td>
@@ -207,7 +207,7 @@ const CustomerStatus = () => {
                   </div>
                 </td>
                 <td className="p-3">
-                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-[#62912C] px-[8px] py-[3px]">
+                  <span className="rounded-[15.75px] bg-success text-xs font-bold text-profitClr px-[8px] py-[3px]">
                     Success
                   </span>
                 </td>

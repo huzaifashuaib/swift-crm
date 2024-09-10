@@ -12,9 +12,10 @@ const ForgetForm = () => {
         <Input
           type="text"
           disable={false}
+          name=""
           value={email}
           label="Email"
-          onchange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter Email"
         />
       </div>

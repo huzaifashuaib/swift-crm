@@ -1,13 +1,20 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Chart, ChartConfiguration, ArcElement, Tooltip, Legend, Plugin } from "chart.js";
+import {
+  Chart,
+  ChartConfiguration,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Plugin,
+} from "chart.js";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
 const DoughnutGraph: React.FC = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstanceRef = useRef<Chart<'doughnut'> | null>(null);
+  const chartInstanceRef = useRef<Chart<"doughnut"> | null>(null);
 
   useEffect(() => {
     const canvas = chartRef.current;
@@ -20,43 +27,43 @@ const DoughnutGraph: React.FC = () => {
           chartInstanceRef.current.destroy();
         }
 
-        const centerTextPlugin: Plugin<'doughnut'> = {
-          id: 'centerTextPlugin',
+        const centerTextPlugin: Plugin<"doughnut"> = {
+          id: "centerTextPlugin",
           beforeDraw(chart) {
             const { ctx, width, height } = chart;
-            const text = '100%';
+            const text = "100%";
             const fontSize = 24;
-            const fontStyle = 'bold';
-            const fontFamily = 'Arial';
+            const fontStyle = "bold";
+            const fontFamily = "Arial";
 
             ctx.restore();
             ctx.font = `${fontStyle} ${fontSize}px ${fontFamily}`;
-            ctx.textBaseline = 'middle';
-            ctx.textAlign = 'center';
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
 
             const textX = width / 2;
             const textY = height / 2;
-            ctx.fillStyle = '#000'; 
+            ctx.fillStyle = "#000";
             ctx.fillText(text, textX, textY);
 
             ctx.save();
-          }
+          },
         };
 
         const data = {
-          labels: ['Social Media', 'Direct Search', 'Others'],
+          labels: ["Social Media", "Direct Search", "Others"],
           datasets: [
             {
-              label: '',
+              label: "",
               data: [68, 54, 45],
-              backgroundColor: ['#41A5FF', '#62912C', '#ED4D5C'],
+              backgroundColor: ["#41A5FF", "#62912C", "#ED4D5C"],
               borderWidth: 0,
             },
           ],
         };
 
-        const config: ChartConfiguration<'doughnut'> = {
-          type: 'doughnut',
+        const config: ChartConfiguration<"doughnut"> = {
+          type: "doughnut",
           data: data,
           options: {
             rotation: 290,
@@ -70,9 +77,9 @@ const DoughnutGraph: React.FC = () => {
                 enabled: true,
               },
             },
-            cutout: '50%',
+            cutout: "50%",
           },
-          plugins: [centerTextPlugin], 
+          plugins: [centerTextPlugin],
         };
 
         chartInstanceRef.current = new Chart(ctx, config);
@@ -93,7 +100,10 @@ const DoughnutGraph: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <canvas ref={chartRef} className="w-full h-full" />
+      <canvas
+        ref={chartRef}
+        className="w-[200.26px] h-[200.26px] md:w-[241.27px] md:h-[241.27px]"
+      />
     </div>
   );
 };

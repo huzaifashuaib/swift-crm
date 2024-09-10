@@ -3,7 +3,7 @@ import Sales from "./Sales";
 
 const CountrySales = () => {
   return (
-    <div className="bg-[#FFF] py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
+    <div className="bg-white py-6 px-4 border-custom border-custom-border-color rounded-[10.5px]">
       <div>
         <h1 className="text-cardMainHead text-base font-semibold">
           Country Sales Statistics
@@ -18,9 +18,8 @@ const CountrySales = () => {
       <div className="border-b border-gray-200 my-3"></div>
 
       <div>
-      <Sales />
+        <Sales />
       </div>
-
     </div>
   );
 };

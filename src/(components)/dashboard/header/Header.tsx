@@ -1,19 +1,20 @@
 import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 import useHeader from "./useHeader";
+
 const Header = async () => {
   const { userImage, userName } = await useHeader();
 
   return (
     <div className="flex justify-between items-center">
-      <div className="profile flex items-center gap-[19.8px] md:gap-[22px]">
-        <div className="rounded-full overflow-hidden w-[61px] h-[61px] sm:w-[80px] sm:h-[80px] md:w-[89px] md:h-[89px]">
+      <div className="profile flex items-center gap-4 md:gap-5">
+        <div className="relative w-[61px] h-[61px] sm:w-[80px] sm:h-[80px] md:w-[89px] md:h-[89px]">
           <Image
             src={userImage}
-            alt=""
-            width={89} 
-            height={89} 
+            alt="user"
+            layout="fill" // Ensure the image covers the container
             className="rounded-full object-cover"
+            priority={false}
           />
         </div>
         <div className="profile-info">
@@ -21,18 +22,20 @@ const Header = async () => {
             <span>Welcome Back, </span>
             <span className="text-btnColor">{userName}</span>
           </h1>
-          <p className="text-[13px] text-textMain font-semibold">Here are your monthly store updates.</p>
+          <p className="text-xs text-textMain font-semibold">
+            Here are your monthly store updates.
+          </p>
         </div>
       </div>
 
-      <div className="searchBox hidden md:block ">
-        <div className="input-search flex rounded-sm focus:border focus:border-none ">
+      <div className="searchBox hidden md:block">
+        <div className="input-search flex rounded-sm border border-gray-200">
           <input
             type="text"
-            className="py-[6px] px-3 border border-gray-200"
+            className="py-1 px-3 border-none"
             placeholder="Type Here"
           />
-          <button className="flex items-center gap-2 bg-btnColor rounded-r-[4px] py-[6px] px-3 text-white br-">
+          <button className="flex items-center gap-2 bg-btnColor rounded-r-md py-1 px-3 text-white">
             <CiSearch />
             Search
           </button>

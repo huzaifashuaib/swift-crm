@@ -7,12 +7,12 @@ import React from "react";
 const Orders = () => {
   return (
     <div>
-      <div className="mb-[62px] ml-[9px]">
+      <div className="mb-5 md:mb-[62px] ml-[9px]">
       <Header pageName="Order Overview" />
       </div>
 
-      <div className="flex gap-[26px]">
-        <div className="w-[65%]">
+      <div className="md:flex gap-[26px]">
+        <div className="w-full md:w-[65%]">
           <div>
             <SalesStatistics />
           </div>
@@ -21,7 +21,7 @@ const Orders = () => {
           </div>
         </div>
 
-        <div className="w-[35%]">
+        <div className="w-full md:w-[35%] mt-[20px] md:mt-0">
           <div>
             <CountrySales />
           </div>

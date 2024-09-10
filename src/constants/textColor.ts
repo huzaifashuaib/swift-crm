@@ -13,5 +13,10 @@ export const COLORS={
   orderSpanColor:'#ADB5BD',
   themeLight:"#F8F9FA",
   dangerBg:"#FFE3E6",
-  danger:"#ED4D5C"
+  danger:"#ED4D5C",
+  profitClr:'#62912C',
+  loseBgClr:'#FFE3E6',
+  loseClrText:'#ED4D5C',
+  lightBlueClr:'#41A5FF',
+  lightPinkClr:'#DDC6FF'
 }

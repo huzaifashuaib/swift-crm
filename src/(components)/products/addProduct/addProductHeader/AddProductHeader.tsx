@@ -4,12 +4,12 @@ import CountProduct from "./countProduct/CountProduct";
 
 const AddProductHeader = () => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="md:flex justify-between items-center">
       <div className="links flex items-center">
         <CountProduct />
       </div>
 
-      <div>
+      <div className="mt-3">
         <AddProductForm />
       </div>
     </div>

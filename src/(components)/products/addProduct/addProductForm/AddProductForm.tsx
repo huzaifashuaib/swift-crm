@@ -22,9 +22,9 @@ const AddProductForm = () => {
     <div>
       <div
         onClick={toggleModal}
-        className="px-20 py-[7.5px] border border-btnColor rounded-[3.2px] bg-themeLight flex justify-between items-center cursor-pointer hover:bg-btnColor text-btnColor hover:text-themeLight"
+        className="px-20 py-[7px] md:py-[7.5px] border border-btnColor rounded-[3.2px] bg-themeLight flex justify-center  items-center cursor-pointer hover:bg-btnColor text-btnColor hover:text-themeLight"
       >
-        <div className="text-sm font-semibold flex items-center gap-2">
+        <div className="text-sm font-semibold flex items-center  gap-2">
           <div className="text-lg">
             <IoMdAdd />
           </div>
@@ -55,7 +55,7 @@ const AddProductForm = () => {
                     {formData.imgUrl && (
                       <Image
                         src={formData.imgUrl}
-                        alt=""
+                        alt="product"
                         fill
                         className="absolute object-cover inset-0 h-24 w-24 rounded-full"
                       />

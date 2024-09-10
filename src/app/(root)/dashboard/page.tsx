@@ -15,13 +15,13 @@ export default function DashBoard() {
         <Header />
       </div>
 
-      <div className="w-full md:flex gap-[21px] h-auto">
-        <div className="w-full md:w-[72%]  flex flex-col h-full">
+      <div className="w-full lg:flex gap-[21px] h-auto">
+        <div className="w-full lg:w-[72%]  flex flex-col h-full">
           <div className="MonthlyIncome md:flex gap-[21px] mb-[21px]">
             <div className="w-full md:w-[160px] mb-5 md:mb-0">
               <TargetOrder />
             </div>
-            <div>
+            <div className="w-full lg:w-auto">
               <MonthlyIncome />
             </div>
           </div>
@@ -33,20 +33,17 @@ export default function DashBoard() {
           </div>
         </div>
 
-        <div className="w-full md:w-[28%] mb-[21.62px]">
+        <div className="w-full lg:w-[28%] mb-[21.62px]">
           <BestSellingProduct />
         </div>
       </div>
 
       <div className="w-full md:flex h-auto">
-        <div className="w-full md:w-[72%]">
-            <CustomerStatus />
+        <div className="w-full md:w-[72%] mb-[21.62px] md:mb-0">
+          <CustomerStatus />
         </div>
         <div className="w-full md:w-[28%] md:ml-[21px]">
-          {/* <div className="mt-[22px]"> */}
-          
-              <CityOrderStatistics />
-          
+          <CityOrderStatistics />
         </div>
       </div>
     </div>

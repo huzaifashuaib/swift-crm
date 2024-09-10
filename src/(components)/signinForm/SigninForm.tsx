@@ -4,37 +4,38 @@ import useSigninForm from "./useSigninForm";
 
 const SigninForm = () => {
   const {
-    email,
-    setEamil,
-    password,
-    setPassword,
+    formData,
     loading,
     googleLoading,
     FaGoogle,
     FaSpinner,
     handleGoogleSubmit,
     handleSubmit,
+    handleInputChange,
   } = useSigninForm();
+
   return (
     <>
       <div>
         <Input
           type="email"
           disable={false}
-          value={email}
+          value={formData.email}
           label="Email"
+          name="email" 
           placeholder="Enter Your Email"
-          onchange={(e) => setEamil(e.target.value)}
+          onChange={handleInputChange}
         />
       </div>
       <div>
         <Input
           type="password"
           disable={false}
-          value={password}
+          value={formData.password}
           label="Password"
+          name="password"
           placeholder="Enter Your Password"
-          onchange={(e) => setPassword(e.target.value)}
+          onChange={handleInputChange}
         />
       </div>
       <button

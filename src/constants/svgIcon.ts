@@ -35,7 +35,10 @@ import MajorityMem from "../../public/assets/customer-page-svg/majorityMem.svg";
 import MajorityNon from "../../public/assets/customer-page-svg/majorityNonMem.svg";
 import revenue from "../../public/assets/order-page-svg/reven.svg";
 import sales from "../../public/assets/order-page-svg/sales.svg";
-import views from "../../public/assets/order-page-svg/views.svg";
+import views from "../../public/assets/order-page-svg/views.svg"; 
+import france from "../../public/assets/order-page-svg/france.svg"; 
+import canada from "../../public/assets/order-page-svg/canda.svg"; 
+import brazil from "../../public/assets/order-page-svg/brazil.svg"; 
 import orderGraph from "../../public/assets/order-page-svg/Graph.png";
 import countryMap from "../../public/assets/order-page-svg/Map.png";
 import countryFlag from "../../public/assets/order-page-svg/Flags.svg";
@@ -54,7 +57,10 @@ import darkDot from "../../public/assets/analystics-svg/darkDot.svg";
 import toDarkDot from "../../public/assets/analystics-svg/todarkDot.svg";
 import saleWeekGraph from "../../public/assets/analystics-svg/salesperWeekGraph.png";
 import salePerCountry from "../../public/assets/analystics-svg/GraphperCountry.png";
-import customerSalePic from "../../public/assets/analystics-svg/customer-pic.svg";
+import customer1 from "../../public/assets/analystics-svg/customer1.svg"
+import customer2 from "../../public/assets/analystics-svg/customer2.svg";
+import customer3 from "../../public/assets/analystics-svg/customer3.svg";
+import customer4 from "../../public/assets/analystics-svg/customer4.svg";
 import pdf from "../../public/assets/document-svg/pdf.svg";
 import docCustomerIcon from "../../public/assets/document-svg/icon.svg";
 import downArrow from "../../public/assets/dashboard-svg/downArrow.svg";
@@ -98,6 +104,9 @@ export const svgIcon = {
   MajorityMem,
   MajorityNon,
   sales,
+  france,
+  brazil,
+  canada,
   views,
   revenue,
   orderGraph,
@@ -118,7 +127,10 @@ export const svgIcon = {
   toDarkDot,
   saleWeekGraph,
   salePerCountry,
-  customerSalePic,
+  customer1,
+  customer2,
+  customer3,
+  customer4,
   pdf,
   docCustomerIcon,
   downArrow,

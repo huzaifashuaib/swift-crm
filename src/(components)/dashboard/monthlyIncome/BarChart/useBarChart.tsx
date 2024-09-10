@@ -24,7 +24,6 @@ const useBarChart = () => {
 
   const getMonthlySales = () => {
     if (!Array.isArray(orderData)) {
-      console.error("orderData is not an array:", orderData);
       return [];
     }
 
@@ -59,11 +58,10 @@ const useBarChart = () => {
         const resultAction = await dispatch(getOrders());
         if (getOrders.fulfilled.match(resultAction)) {
           const orders = resultAction.payload;
-          console.log(orders)
           if (Array.isArray(orders)) {
             setOrderData(orders);
           } else {
-            console.error("Fetched orders data is not an array:", orders);
+         
             setOrderData([]);
           }
         } else if (getOrders.rejected.match(resultAction)) {

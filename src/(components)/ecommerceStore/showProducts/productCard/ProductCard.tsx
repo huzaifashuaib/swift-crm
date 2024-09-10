@@ -1,10 +1,8 @@
 "use client";
-import { useAppDispatch } from "@/redux/store";
 import CartBtn from "./CartBtn/CartBtn";
 import useProductCard from "./useProductCard";
 import { PRODUCT } from "@/types/types";
 import Image from "next/image";
-import { addToCart } from "@/redux/slices/productSlice";
 import { FaSpinner } from "react-icons/fa";
 
 const ProductCard = () => {

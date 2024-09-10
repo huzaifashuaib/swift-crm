@@ -17,8 +17,6 @@ const useBarGraph = () => {
     const [orderData, setOrderData] = useState<ORDER_FORMDATA[]>([]);
     const [sales, setSales] = useState<number[]>([]);
   
-    console.log("Start Date:", startDate);
-    console.log("End Date:", endDate);
     const getMonthLabels = () => {
       const labels = [];
       const currentMonth = new Date().getMonth();
@@ -31,7 +29,6 @@ const useBarGraph = () => {
     const getMonthlySales = () => {
       const month = new Date().getMonth();
       if (!Array.isArray(orderData)) {
-        console.error("orderData is not an array:", orderData);
         return [];
       }
   
@@ -69,7 +66,6 @@ const useBarGraph = () => {
             if (Array.isArray(orders)) {
               setOrderData(orders);
             } else {
-              console.error("Fetched orders data is not an array:", orders);
               setOrderData([]);
             }
           } else if (getOrders.rejected.match(resultAction)) {
@@ -134,9 +130,6 @@ const useBarGraph = () => {
           };
   
           const { filteredLabels, filteredData } = filterDataByDate();
-  
-          console.log("Filtered Labels:", filteredLabels);
-          console.log("Filtered Data:", filteredData);
   
           const maxValue = Math.max(...filteredData);
   

@@ -18,34 +18,16 @@ export type CustomCircularProgressBarProps = {
   antiClockwise?: boolean;
 };
 
-// customer Page
-export type CustomerCardType = {
-  svgIcon: string;
-  text: string;
-  total: string;
-  color?: string;
-  textClr?: string;
-  border?: boolean;
-};
-
-// orders Page
-
-export type OrderSalesCardType = {
-  icon: string;
-  text: string;
-  statics: number | string;
-  subtext: string;
-};
-
 // Input Feild Type
 
 export type InputProps = {
   value?: string;
-  onchange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   disable?: boolean;
   type?: string;
   label: string;
   placeholder: string;
+  name: string;
 };
 
 export type AUTH_USER = {
@@ -75,7 +57,6 @@ export type USER = {
   publicId: string;
 };
 
-
 export type UPDATE_USER_PASS = {
   password: string;
   newPassword: string;
@@ -88,7 +69,7 @@ export type FORMDATA = {
   quantity: number;
   category: string;
   description: string;
-  purchasePrice:number;
+  purchasePrice?: number;
   imgUrl?: string;
   publicId?: string;
 };
@@ -102,7 +83,6 @@ export type PRODUCT_INITALSTATE = {
   error: string | null;
 };
 
-
 export type ORDER_FORMDATA = {
   id?: string;
   firstName: string;
@@ -110,17 +90,108 @@ export type ORDER_FORMDATA = {
   address: string;
   city: string;
   phoneNumber: string;
-  postCode: string; 
+  postCode: string;
   products?: FORMDATA[];
-  totalBill?:number
-  status?:string
-  date?:string
-  totalProfit?:number
+  totalBill?: number;
+  status?: string;
+  date?: string;
+  totalProfit?: number;
 };
-
 
 export type ORDER_INITALSTATE = {
   order: [] | ORDER_FORMDATA[];
   loading: boolean;
   error: string | null;
 };
+
+// Customer Page
+
+export type CustomerStatus = {
+  customerUrl: string;
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  customerAddress: string;
+  customerStatus: string;
+};
+
+export type CustomerCardType = {
+  svgIcon: string;
+  text: string;
+  total: string;
+  color?: string;
+  bgClr?: string;
+  border?: boolean;
+};
+
+// Orders page
+
+export type OrderSalesCardType = {
+  icon: string;
+  text: string;
+  statics: number | string;
+  subtext: string;
+};
+
+export type ProductDataType = {
+  productImage: string;
+  productName: string;
+  productSub: string;
+  pcs: string;
+  date: string;
+  status: string;
+  price: string;
+};
+
+export type CountryDataType = {
+  countryImage: string;
+  countryName: string;
+  profit: string;
+  percentage: string;
+};
+
+//  analystic page
+
+export type AnalysticDataType = {
+  customerImage: string;
+  customerName: string;
+  customerDetail: string;
+  customerPrice: string;
+};
+
+// document page
+
+export type documentDataType = {
+  name: string;
+  type: string;
+  author: string;
+  version: string;
+  status: string;
+  uploadedDate: string;
+  pdfimg: string;
+  CustomerIcon: string;
+};
+
+// signUp
+
+export type UserSignupDataType = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+// update Profile
+
+export type UpdateProfileDataType = {
+  userName: string;
+  email: string;
+  imgUrl: string;
+  publicId: string;
+};
+
+
+// update Password
+export type UpdatePasswordDataType={
+  password:string,
+  newPassword:string
+}

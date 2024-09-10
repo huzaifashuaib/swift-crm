@@ -27,7 +27,7 @@ const CartBtn = () => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 w-1/4 h-full z-20 bg-white px-3 py-3 transition-transform duration-300 shadow-lg ${
+        className={`fixed top-0 right-0 w-full md:w-1/4  h-full z-20 bg-white px-3 py-3 transition-transform duration-300 shadow-lg ${
           openCart ? "translate-x-0" : "translate-x-full"
         }`}
       >

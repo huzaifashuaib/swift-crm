@@ -7,49 +7,59 @@ import { CloudinaryUploadWidgetResults } from "next-cloudinary";
 import { useSession, signOut } from "next-auth/react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { updateProfile } from "@/redux/slices/userSlice";
+import { UpdateProfileDataType } from "@/types/types";
 
 const useEditForm = () => {
   const { data: session } = useSession();
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    userName: "",
+    email: "",
+    imgUrl: "",
+    publicId: "",
+  });
   const [loading, setLoading] = useState(false);
-  const [imgUrl, setImgUrl] = useState("");
-  const [publicId, setPublicId] = useState("");
   const dispatch = useAppDispatch();
   const selector = useAppSelector((state) => state.user.user);
 
   useEffect(() => {
     if (session) {
       const { user } = session;
-      setUserName(user?.name || "");
-      setEmail(user?.email || "");
+      setFormData((prev) => ({
+        ...prev,
+        userName: user?.name || "",
+        email: user?.email || "",
+      }));
     }
   }, [session]);
 
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleUpload = (result: CloudinaryUploadWidgetResults) => {
     const info = result?.info;
-    if (
-      typeof info === "object" &&
-      info &&
-      "secure_url" in info &&
-      "public_id" in info
-    ) {
+    if (typeof info === "object" && info && "secure_url" in info && "public_id" in info) {
       const url = info.secure_url as string;
       const public_id = info.public_id as string;
 
-      setImgUrl(url);
-      setPublicId(public_id);
+      setFormData((prev) => ({
+        ...prev,
+        imgUrl: url,
+        publicId: public_id,
+      }));
     } else {
       toast.error("Failed to retrieve the URL or public ID from Cloudinary.");
     }
   };
 
-  const handleupdatePassword = async () => {
+  const handleupdateProfile = async (formData:UpdateProfileDataType) => {
     try {
       setLoading(true);
-      if (email !== "" && userName !== "") {
+      if (formData.email !== "" && formData.userName !== "") {
         const resultAction = await dispatch(
-          updateProfile({ userName, email, imgUrl, publicId })
+          updateProfile(formData)
         );
         if (updateProfile.rejected.match(resultAction)) {
           const errorMessage = resultAction.payload as string;
@@ -84,19 +94,15 @@ const useEditForm = () => {
   };
 
   return {
-    userName,
-    setUserName,
-    email,
-    setEmail,
+    formData,
+    setFormData,
     loading,
-    setLoading,
     FaSpinner,
-    handleupdatePassword,
-    imgUrl,
-    publicId,
+    handleupdateProfile,
     handleUpload,
     CldUploadButton,
     FaPlus,
+    handleInputChange
   };
 };
 

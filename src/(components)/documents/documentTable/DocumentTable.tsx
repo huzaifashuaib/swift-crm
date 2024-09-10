@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { svgIcon } from "@/constants/svgIcon";
 import CustomBtn from "../../customBtn/CustomBtn";
 import StatusBtn from "./StatusBtn/StatusBtn";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { documentsData } from "@/constants/documentData";
 
 const DocumentTable = () => {
-  const { pdf, docCustomerIcon } = svgIcon;
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left rtl:text-right border-separate text-cardMainHead border-spacing-y-[9.96px]">
@@ -14,7 +13,7 @@ const DocumentTable = () => {
           <tr>
             <th
               scope="col"
-              className="p-4 rounded-tl-[4.15px] rounded-bl-[4.15px]"
+              className="p-4 rounded-tl-[4.15px] rounded-bl-[4.15px] w-[26.56px]"
             >
               <div className="flex items-center">
                 <input
@@ -28,543 +27,99 @@ const DocumentTable = () => {
               </div>
             </th>
             <th scope="col">
-              <div className="my-[10.79px]">Document Name</div>
+              <div className="my-[10.79px] w-[205.01px]">Document Name</div>
             </th>
             <th scope="col">
-              <div className="my-[10.79px]">Type</div>
+              <div className="my-[10.79px] w-[46.48px]">Type</div>
             </th>
             <th scope="col">
-              <div className="my-[10.79px]">Author</div>
+              <div className="my-[10.79px] w-[161.02px]">Author</div>
             </th>
             <th scope="col">
-              <div className="my-[10.79px]">Version</div>
+              <div className="my-[10.79px] w-[95.86px]">Version</div>
             </th>
             <th scope="col">
-              <div className="my-[10.79px]">Status</div>
+              <div className="my-[10.79px] w-[67.23px]">Status</div>
             </th>
             <th scope="col" className="rounded-tr-[4.15px] rounded-br-[4.15px]">
-              <div className="my-[10.79px]">Actions</div>
+              <div className="my-[10.79px] w-[88.81px]">Actions</div>
             </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
+          {documentsData.map((document, index) => (
+            <tr key={index} className="bg-white hover:bg-gray-50">
+              <td className="w-4 p-4">
+                <div className="flex items-center">
+                  <input
+                    id="checkbox-table-search-2"
+                    type="checkbox"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label htmlFor="checkbox-table-search-2" className="sr-only">
+                    checkbox
+                  </label>
                 </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
+              </td>
+              <td>
                 <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
+                  <div>
+                    <Image src={document.pdfimg} alt="doc" />
                   </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
+                  <div>
+                    <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
+                      {document.name}
+                    </div>
+                    <div className="text-textMain text-[10px] font-medium">
+                      {document.uploadedDate}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
+              </td>
+              <td>
+                <div className="my-[6.64px] text-textMain font-medium text-xs">
+                  {document.type}
                 </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
+              </td>
+              <td>
+                <div className="my-[6.64px] text-textMain font-medium">
+                  <div className=" flex items-center gap-[6.64px] my-[6.64px]">
+                    <Image src={document.CustomerIcon} alt="icon" />
+                    <div className="text-textMain font-medium">
+                      {document.author}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
+              </td>
+              <td>
+                <div className="my-[6.64px] text-textMain font-medium text-xs">
+                  {document.version}
                 </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
+              </td>
+              <td>
+                <div className="my-[6.64px] text-textMain font-medium flex">
+                  <StatusBtn text="Archive" />
+                </div>
+              </td>
 
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
+              <td>
+                <div className="my-[6.64px] flex items-center gap-[13.28px]">
+                  <div>
+                    <CustomBtn text="View" />
                   </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
+                  <div>
+                    <CustomBtn text="Edit" />
                   </div>
                 </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <tr className="bg-white hover:bg-gray-50">
-            <td className="w-4 p-4">
-              <div className="flex items-center">
-                <input
-                  id="checkbox-table-search-2"
-                  type="checkbox"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-                <label htmlFor="checkbox-table-search-2" className="sr-only">
-                  checkbox
-                </label>
-              </div>
-            </td>
-            <td>
-              <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                <div>
-                  <Image src={pdf} alt="" />
-                </div>
-                <div>
-                  <div className="text-cardMainHead text-xs font-medium mb-[3.32px]">
-                    Product Requirements
-                  </div>
-                  <div className="text-textMain text-[10px] font-medium">
-                    Uploaded 29 Jul 2023
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                PDF
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium">
-                <div className=" flex items-center gap-[6.64px] my-[6.64px]">
-                  <Image src={docCustomerIcon} alt="" />
-                  <div className="text-textMain font-medium">Earl Grayson</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium text-xs">
-                1
-              </div>
-            </td>
-            <td>
-              <div className="my-[6.64px] text-textMain font-medium flex">
-                <StatusBtn text="Archive" />
-              </div>
-            </td>
-
-            <td>
-              <div className="my-[6.64px] flex items-center gap-[13.28px]">
-                <div>
-                  <CustomBtn text="View" />
-                </div>
-                <div>
-                  <CustomBtn text="Edit" />
-                </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
-      <div className="flex justify-between items-center mb-[9.96px]">
-        <div className="flex items-center space-x-[9.96px]">
+      <div className="md:flex justify-center md:justify-between items-center mb-[9.96px]">
+        <div className="flex items-center justify-center space-x-[9.96px]">
           <label
             htmlFor="entries-per-page"
             className="text-[12.45px] font-semibold text-cardMainHead"

@@ -1,6 +1,5 @@
 "use client";
 
-// Define the type for props
 interface ModalFormProps {
   isOpen: boolean;
   toggleModal: () => void;
@@ -8,7 +7,12 @@ interface ModalFormProps {
   children: React.ReactNode;
 }
 
-const ModalForm: React.FC<ModalFormProps> = ({ isOpen, toggleModal, title, children }) => {
+const ModalForm: React.FC<ModalFormProps> = ({
+  isOpen,
+  toggleModal,
+  title,
+  children,
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -21,9 +25,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, toggleModal, title, child
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative bg-white rounded-lg shadow border-2 border-btnColor">
           <div className="flex items-center justify-between p-4 md:p-5 border-b-2 rounded-t border-btnColor">
-            <h3 className="text-lg font-bold text-btnColor">
-              {title}
-            </h3>
+            <h3 className="text-lg font-bold text-btnColor">{title}</h3>
             <button
               type="button"
               onClick={toggleModal}
@@ -48,10 +50,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ isOpen, toggleModal, title, child
             </button>
           </div>
 
-       
-          <div className="p-4 md:p-5">
-            {children}
-          </div>
+          <div className="p-4 md:p-5">{children}</div>
         </div>
       </div>
     </div>

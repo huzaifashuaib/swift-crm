@@ -1,24 +1,31 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend, ChartConfiguration } from "chart.js";
+import {
+  Chart,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+  ChartConfiguration,
+} from "chart.js";
 
 Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const HorizontalBarGraph: React.FC = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstanceRef = useRef<Chart<'bar'> | null>(null);
+  const chartInstanceRef = useRef<Chart<"bar"> | null>(null);
   const [startDate, setStartDate] = useState<string>("2024-01-01");
   const [endDate, setEndDate] = useState<string>("2024-12-31");
 
-  // Sample data with dates and country names
   const allCountries = [
-    'United States',
-    'France',
-    'Japan',
-    'Canada',
-    'Brazil',
-    'Australia'
+    "United States",
+    "France",
+    "Japan",
+    "Canada",
+    "Brazil",
+    "Australia",
   ];
   const allDates = [
     "2024-01-01",
@@ -45,10 +52,10 @@ const HorizontalBarGraph: React.FC = () => {
         const filterDataByDate = () => {
           const start = new Date(startDate).getTime();
           const end = new Date(endDate).getTime();
-  
+
           const filteredLabels: string[] = [];
           const filteredData: number[] = [];
-  
+
           allDates.forEach((date, index) => {
             const dateValue = new Date(date).getTime();
             if (dateValue >= start && dateValue <= end) {
@@ -56,28 +63,28 @@ const HorizontalBarGraph: React.FC = () => {
               filteredData.push(allDataValues[index]);
             }
           });
-  
+
           // Ensure there's at least one data point
           if (filteredData.length === 0) {
             filteredLabels.push(allCountries[0]);
             filteredData.push(allDataValues[0]);
           }
-  
+
           return { filteredLabels, filteredData };
         };
 
         const { filteredLabels, filteredData } = filterDataByDate();
         const maxValue = Math.max(...filteredData);
 
-        const backgroundColors = filteredData.map(value =>
-          value === maxValue ? '#41A5FF' : '#BADAFF'
+        const backgroundColors = filteredData.map((value) =>
+          value === maxValue ? "#41A5FF" : "#BADAFF"
         );
 
         const data = {
           labels: filteredLabels,
           datasets: [
             {
-              label: '',
+              label: "",
               data: filteredData,
               backgroundColor: backgroundColors,
               borderWidth: 1,
@@ -86,11 +93,11 @@ const HorizontalBarGraph: React.FC = () => {
         };
 
         // Chart configuration
-        const config: ChartConfiguration<'bar'> = {
-          type: 'bar',
+        const config: ChartConfiguration<"bar"> = {
+          type: "bar",
           data: data,
           options: {
-            indexAxis: 'y',
+            indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
             scales: {
@@ -127,7 +134,6 @@ const HorizontalBarGraph: React.FC = () => {
       console.error("Canvas element not found.");
     }
 
-
     return () => {
       if (chartInstanceRef.current) {
         chartInstanceRef.current.destroy();
@@ -138,20 +144,6 @@ const HorizontalBarGraph: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      {/* <div className="flex space-x-4 mb-4">
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          className="border p-2 rounded"
-        />
-      </div> */}
       <div className="relative w-full h-full">
         <canvas ref={chartRef} className="w-full h-full" />
       </div>

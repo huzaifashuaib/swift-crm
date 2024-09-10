@@ -14,7 +14,7 @@ const Documents = () => {
         <Header pageName="Documents" />
       </div>
 
-      <div className="bg-[#FFFFFF] py-[19.92px] px-[13.28px] rounded-[8.72px] shadow-lg mt-[40.01px]">
+      <div className="bg-white py-[19.92px] px-[13.28px] rounded-[8.72px] shadow-lg mt-[40.01px]">
         <div>
           <div className="docNav">
             <NavDoc />
@@ -27,7 +27,7 @@ const Documents = () => {
         </div>
       </div>
 
-      <div className="mt-[56.85px]">
+      <div className="mt-[20.15px] md:mt-[56.85px]">
         <DocumentBtn />
       </div>
 

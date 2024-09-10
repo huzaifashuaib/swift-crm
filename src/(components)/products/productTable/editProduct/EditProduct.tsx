@@ -16,13 +16,16 @@ const EditProduct = ({ id }: { id: string | undefined }) => {
     handleGetProductData,
     handleUpload,
     CldUploadButton,
-    FaPlus
+    FaPlus,
   } = useEditProduct(id);
   return (
     <>
       <button onClick={handleGetProductData}>
-        {isLoading ? <FaSpinner className=" animate-spin" />:<CustomBtn text="Edit" />}
-        
+        {isLoading ? (
+          <FaSpinner className=" animate-spin" />
+        ) : (
+          <CustomBtn text="Edit" />
+        )}
       </button>
 
       <div>
@@ -33,30 +36,27 @@ const EditProduct = ({ id }: { id: string | undefined }) => {
         >
           <form onSubmit={handleEdit}>
             <div className="grid gap-4 mb-4 grid-cols-2">
-
-            <div className="flex justify-center items-center my-4 col-span-2">
-        <CldUploadButton
-          uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET_KEY}
-          className={`bg-gray-100 h-28 w-28  border-4 border-btnColor shadow-sm rounded-full relative ${
-            formData.imgUrl 
-          }`}
-          onSuccess={handleUpload}
-        >
-          <div className="flex justify-center items-center">
-            <FaPlus className="text-cardHead" />
-          </div>
-          <div>
-            {formData.imgUrl && (
-              <Image
-                src={formData.imgUrl}
-                alt=""
-                fill
-                className="absolute object-cover inset-0 h-24 w-24 rounded-full"
-              />
-            )}
-          </div>
-        </CldUploadButton>
-      </div>
+              <div className="flex justify-center items-center my-4 col-span-2">
+                <CldUploadButton
+                  uploadPreset={process.env.NEXT_PUBLIC_UPLOAD_PRESET_KEY}
+                  className={`bg-gray-100 h-28 w-28  border-4 border-btnColor shadow-sm rounded-full relative ${formData.imgUrl}`}
+                  onSuccess={handleUpload}
+                >
+                  <div className="flex justify-center items-center">
+                    <FaPlus className="text-cardHead" />
+                  </div>
+                  <div>
+                    {formData.imgUrl && (
+                      <Image
+                        src={formData.imgUrl}
+                        alt="product"
+                        fill
+                        className="absolute object-cover inset-0 h-24 w-24 rounded-full"
+                      />
+                    )}
+                  </div>
+                </CldUploadButton>
+              </div>
 
               <div className="col-span-2">
                 <label
