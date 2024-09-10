@@ -1,5 +1,5 @@
 "use client";
-import Input from "../input/Input";
+import Input from "@/(components)/input/Input";
 import useForgetForm from "./useForgetForm";
 
 const ForgetForm = () => {
