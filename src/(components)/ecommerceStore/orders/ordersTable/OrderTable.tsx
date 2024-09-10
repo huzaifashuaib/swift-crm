@@ -88,7 +88,7 @@ const OrderTable = () => {
 
                   <td>
                     {order.products?.map((product: PRODUCT) => (
-                      <div className="my-[6.64px] text-textMain font-medium text-xs">
+                      <div key={product.id} className="my-[6.64px] text-textMain font-medium text-xs">
                         {product.quantity}
                       </div>
                     ))}
@@ -96,7 +96,7 @@ const OrderTable = () => {
 
                   <td>
                     {order.products?.map((product: PRODUCT) => (
-                      <div className="my-[6.64px] text-textMain font-medium text-xs">
+                      <div key={product.id} className="my-[6.64px] text-textMain font-medium text-xs">
                         {product.price}
                       </div>
                     ))}
