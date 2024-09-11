@@ -9,7 +9,7 @@ const initialState: INITALSTATE = {
   error: null,
 };
 
-// Thunk for adding user
+
 export const addUser = createAsyncThunk(
   "auth/addUser",
   async ({ name, email, password }: AUTH_USER, { rejectWithValue }) => {
