@@ -12,17 +12,17 @@ export async function PUT(req: Request) {
     }
 
     if (name || price || quantity || category || description || imgUrl || publicId) {
-      if (publicId) {
-        const productPublicId=publicId;
-        const response = await axios.post(
-          "https://swift-crm-techloset.vercel.app//api/removeImageCloud",
-          { productPublicId }
-        );
+      // if (publicId) {
+      //   const productPublicId=publicId;
+      //   const response = await axios.post(
+      //     "https://swift-crm-techloset.vercel.app/api/removeImageCloud",
+      //     { productPublicId }
+      //   );
   
-        if (response.status !== 200) {
-          throw new Error(`Failed to remove image: ${response.statusText}`);
-        }
-      }
+      //   if (response.status !== 200) {
+      //     throw new Error(`Failed to remove image: ${response.statusText}`);
+      //   }
+      // }
 
       const updatedProduct = await prismadb.product.update({
         where: { id },
