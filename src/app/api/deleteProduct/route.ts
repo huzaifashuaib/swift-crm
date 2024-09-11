@@ -17,6 +17,7 @@ export async function DELETE(req: Request) {
 
     return NextResponse.json(deletedProduct);
   } catch (error: any) {
+    console.log(error)
     if (error.code === "P2025") {
       return new NextResponse("Product Not Found ❌", { status: 404 });
     }
