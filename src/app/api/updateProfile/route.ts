@@ -26,17 +26,6 @@ export async function POST(req: Request) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    if (user.publicId) {
-      const userPublicId = user.publicId;
-      const response = await axios.post(
-        "http://localhost:3000/api/removeImageCloud",
-        { userPublicId }
-      );
-
-      if (response.status !== 200) {
-        throw new Error(`Failed to remove image: ${response.statusText}`);
-      }
-    }
 
     const updatedUser = await prismadb.user.update({
       where: {
