@@ -3,7 +3,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Input from "@/(components)/input/Input";
 import useEditPassword from "./useEditPassword";
-import { validationUpdatePasswordSchema } from '@/utils/axiosInstance/validation/updatePasswordValidation';
+import { validationUpdatePasswordSchema } from '@/utils/validation/updatePasswordValidation';
 
 
 const EditPassword = () => {

@@ -5,7 +5,7 @@ import Input from "@/(components)/input/Input";
 import useEditForm from "./useEditForm";
 import Image from "next/image";
 import { FaSpinner, FaPlus } from "react-icons/fa";
-import { validationUpdateProfileSchema } from "@/utils/axiosInstance/validation/updateProfileValidation";
+import { validationUpdateProfileSchema } from "@/utils/validation/updateProfileValidation";
 
 const EditForm = () => {
   const {

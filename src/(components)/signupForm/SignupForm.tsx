@@ -1,7 +1,7 @@
 "use client";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Input from '@/(components)/input/Input';
-import { validationSignUpSchema } from '@/utils/axiosInstance/validation/signupValidation';
+import { validationSignUpSchema } from '@/utils/validation/signupValidation';
 import useSignupForm from './useSignupForm';
 
 const SignupForm = () => {
