@@ -26,7 +26,6 @@ export async function POST(req: Request) {
       return new NextResponse("User not found", { status: 404 });
     }
 
-
     const updatedUser = await prismadb.user.update({
       where: {
         email: currentLogIn,
