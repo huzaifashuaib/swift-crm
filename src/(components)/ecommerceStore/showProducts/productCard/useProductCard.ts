@@ -13,7 +13,6 @@ const useProductCard = () => {
     const [products, setProducts] = useState<PRODUCT[]>([]);
 
     const handleAddToCart = (productId: string) => {
-        console.log('handleAddToCart called with:', productId);
         dispatch(addToCart(productId));
         const product=allProducts.product.find((product)=>product.id === productId)
         if(product){

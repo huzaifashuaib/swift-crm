@@ -1,7 +1,6 @@
 import { PRODUCT, PRODUCT_INITALSTATE } from "@/types/types";
 import instance from "@/utils/axiosInstance/axiosInstance";
 import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
 
 const initialState: PRODUCT_INITALSTATE = {
   product: [],
@@ -14,7 +13,7 @@ export const addProduct = createAsyncThunk(
   "product/addProduct",
   async (formData: PRODUCT, { rejectWithValue }) => {
     try {
-      const response = await instance.post("/product/addProduct", {
+      const response = await instance.post("/addProduct", {
         formData,
       });
       return response?.data;
@@ -30,7 +29,7 @@ export const getAllProduct = createAsyncThunk(
   "get/getAllproduct",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await instance.get("/product/getAllProduct");
+      const response = await instance.get("/getAllProduct");
       return response?.data;
     } catch (error: any) {
       console.log("Error in getProduct:", error);
@@ -44,7 +43,7 @@ export const deleteProduct = createAsyncThunk(
   "del/deleteProduct",
   async ({ id }: { id: string }, { rejectWithValue }) => {
     try {
-      const response = await instance.delete("/product/deleteProduct", {
+      const response = await instance.delete("/deleteProduct", {
         data: { id },
       });
       return response?.data;
@@ -59,7 +58,7 @@ export const editProduct = createAsyncThunk(
   "edit/editProduct",
   async ({ id }: { id: string }, { rejectWithValue }) => {
     try {
-      const response = await instance.post("/product/editProduct", {
+      const response = await instance.post("/editProduct", {
         id,
       });
       return response?.data;
@@ -74,7 +73,7 @@ export const updateProduct = createAsyncThunk(
   "edit/updateProduct",
   async (formData: PRODUCT, { rejectWithValue }) => {
     try {
-      const response = await instance.post("/product/editProduct", formData);
+      const response = await instance.post("/editProduct", formData);
       return response?.data;
     } catch (error: any) {
       const errorMessage = error.response?.data || "Failed to Edit Product";
