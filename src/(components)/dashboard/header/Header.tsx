@@ -1,9 +1,3 @@
-//             alt="user"
-//             layout="fill" // Ensure the image covers the container
-//             className="rounded-full object-cover"
-//             priority={false}
-//           />
-//         </div>
 "use client"
 
 import { CiSearch } from "react-icons/ci";
