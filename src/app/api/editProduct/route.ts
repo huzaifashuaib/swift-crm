@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
 import axios from "axios";
 
-export async function POST(req: Request) {
+export async function PUT(req: Request) {
   try {
     const body = await req.json();
     const { id, name, price, quantity, category, description,imgUrl,publicId } = body;
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       if (publicId) {
         const productPublicId=publicId;
         const response = await axios.post(
-          "http://localhost:3000/api/removeImageCloud",
+          "https://swift-crm-techloset.vercel.app//api/removeImageCloud",
           { productPublicId }
         );
   
