@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import {COLORS} from "./src/constants/textColor"
+import {COLORS} from "./src/constants/colors"
 import { BackgroundImage } from "./src/constants/backgroundImage";
 
 

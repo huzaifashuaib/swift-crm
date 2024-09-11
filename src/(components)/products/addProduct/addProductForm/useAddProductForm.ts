@@ -21,12 +21,10 @@ const useAddProductForm = () => {
     quantity: "",
     category: "",
     description: "",
-    publicId:"",
-    imgUrl:"",
-    purchasePrice:""
-
+    publicId: "",
+    imgUrl: "",
+    purchasePrice: "",
   });
-
 
   const handleUpload = (result: CloudinaryUploadWidgetResults) => {
     const info = result?.info;
@@ -38,18 +36,16 @@ const useAddProductForm = () => {
     ) {
       const url = info.secure_url as string;
       const public_id = info.public_id as string;
-     
+
       setFormData((prevState) => ({
         ...prevState,
-        imgUrl:url,
-        publicId:public_id
+        imgUrl: url,
+        publicId: public_id,
       }));
-
     } else {
       toast.error("Failed to retrieve the URL or public ID from Cloudinary.");
     }
   };
-
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -67,7 +63,7 @@ const useAddProductForm = () => {
       ...formData,
       price: parseFloat(formData.price),
       quantity: parseInt(formData.quantity, 10),
-      purchasePrice:parseInt(formData.purchasePrice, 10),
+      purchasePrice: parseInt(formData.purchasePrice, 10),
     };
     try {
       setLoading(true);
@@ -85,9 +81,9 @@ const useAddProductForm = () => {
           quantity: "",
           category: "",
           description: "",
-          publicId:"",
-          imgUrl:"",
-          purchasePrice:""
+          publicId: "",
+          imgUrl: "",
+          purchasePrice: "",
         });
       }
     } catch (error: any) {
@@ -106,7 +102,7 @@ const useAddProductForm = () => {
     FaSpinner,
     handleUpload,
     CldUploadButton,
-    FaPlus
+    FaPlus,
   };
 };
 
