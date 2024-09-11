@@ -1,7 +1,6 @@
 import React from "react";
 import { svgIcon } from "@/constants/svgIcon";
 import Image from "next/image";
-import Input from "@/(components)/input/Input";
 import OrderInfo from "@/(components)/ecommerceStore/checkout/orderInfo/OrderInfo";
 import OrderSummary from "@/(components)/ecommerceStore/checkout/orderSummary/OrderSummary";
 const Checkout = () => {

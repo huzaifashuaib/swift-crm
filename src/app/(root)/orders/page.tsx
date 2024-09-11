@@ -3,6 +3,8 @@ import BestSellingProduct from "@/(components)/orders/bestSellingProduct/BestSel
 import CountrySales from "@/(components)/orders/contryStatistics/CountrySales";
 import SalesStatistics from "@/(components)/orders/salesStatistic/SaleStatistics";
 import React from "react";
+export const dynamic = 'force-dynamic';
+
 
 const Orders = () => {
   return (

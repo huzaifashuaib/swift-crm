@@ -62,7 +62,7 @@ const Header = () => {
           <Image
             src={userImage}
             alt="user"
-            layout="fill" // Ensure the image covers the container
+            layout="fill" 
             className="rounded-full object-cover"
             priority={false}
           />

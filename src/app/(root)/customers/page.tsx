@@ -5,6 +5,9 @@ import CustomerUsage from "@/(components)/customers/customerUsage/CustomerUsage"
 import Header from "@/(components)/header/Header";
 import { svgIcon } from "@/constants/svgIcon";
 
+export const dynamic = 'force-dynamic';
+
+
 const Customers = () => {
   const { totalMem, newMem, nonMem, member } = svgIcon;
   return (

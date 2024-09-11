@@ -6,6 +6,7 @@ import Header from "@/(components)/header/Header";
 
 
 import React from "react";
+export const dynamic = 'force-dynamic';
 
 const Documents = () => {
   return (

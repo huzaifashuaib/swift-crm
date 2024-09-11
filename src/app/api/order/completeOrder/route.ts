@@ -10,7 +10,6 @@ export async function PUT(req: Request) {
       return new NextResponse("Order ID missing", { status: 400 });
     }
 
-    // Validate if the order exists before updating
     const existingOrder = await prismadb.order.findUnique({
       where: { id },
     });

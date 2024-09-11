@@ -7,6 +7,9 @@ import Vistors from "@/(components)/analytics/vistors/Vistors";
 import Header from "@/(components)/header/Header";
 import React from "react";
 
+export const dynamic = 'force-dynamic';
+
+
 const analytics = () => {
   return (
     <div>
