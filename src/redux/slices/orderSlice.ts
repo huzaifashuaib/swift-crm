@@ -27,7 +27,7 @@ export const getOrders = createAsyncThunk(
   "get/orders",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await instance.get("/order/getOrders");
+      const response = await instance.get("/getOrders");
       return response?.data;
     } catch (error: any) {
       console.log("Error in getOrder:", error);
@@ -40,7 +40,7 @@ export const completeOrder = createAsyncThunk(
   "edit/completeOrder",
   async ({id}:{id:string | undefined}, { rejectWithValue }) => {
     try {
-      const response = await instance.put("/order/completeOrder",{
+      const response = await instance.put("/completeOrder",{
         id
       });
       return response?.data;

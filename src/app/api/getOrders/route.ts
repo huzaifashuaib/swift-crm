@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/app/libs/prismadb";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: Request) {
   try {
     const orders = await prismadb.order.findMany();
