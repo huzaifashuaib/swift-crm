@@ -30,7 +30,7 @@ export const updatePassword = createAsyncThunk(
   "user/updatePassword",
   async ({ password, newPassword }: UPDATE_USER_PASS, { rejectWithValue }) => {
     try {
-      const respone = await instance.post("/updatePassword", {
+      const respone = await instance.post("/updateProfilePassword", {
         password,
         newPassword,
       });
