@@ -58,7 +58,7 @@ export const editProduct = createAsyncThunk(
   "edit/editProduct",
   async ({ id }: { id: string }, { rejectWithValue }) => {
     try {
-      const response = await instance.put("/editProduct", {
+      const response = await instance.post("/editProduct", {
         id,
       });
       return response?.data;
